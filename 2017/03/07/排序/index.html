@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>排序 | 木杉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="大学的时光很快就过去了，好多同学都为面试作者准备，机会往往留给又准备的人，的确也该复习一下大学所学的知识了，虽然不可能再面面聚到的学习了，可是还是要为自己的青春负一下责任的，好啦废话不多说来一波排序集锦。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="排序">
+<meta property="og:url" content="http://www.goodgsger.me/2017/03/07/排序/index.html">
+<meta property="og:site_name" content="木杉">
+<meta property="og:description" content="大学的时光很快就过去了，好多同学都为面试作者准备，机会往往留给又准备的人，的确也该复习一下大学所学的知识了，虽然不可能再面面聚到的学习了，可是还是要为自己的青春负一下责任的，好啦废话不多说来一波排序集锦。">
+<meta property="og:updated_time" content="2017-03-09T15:35:44.645Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="排序">
+<meta name="twitter:description" content="大学的时光很快就过去了，好多同学都为面试作者准备，机会往往留给又准备的人，的确也该复习一下大学所学的知识了，虽然不可能再面面聚到的学习了，可是还是要为自己的青春负一下责任的，好啦废话不多说来一波排序集锦。">
+  
+    <link rel="alternative" href="/atom.xml" title="木杉" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">木杉</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">木遇水生&amp;褐染杉绝</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/goodGsger" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Git-hexo/" style="font-size: 10px;">Git-hexo</a> <a href="/tags/NGUI-3-11-1/" style="font-size: 10px;">NGUI(3-11-1)</a> <a href="/tags/Unity-shader/" style="font-size: 10px;">Unity shader</a> <a href="/tags/UnityAPI/" style="font-size: 20px;">UnityAPI</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.gaopei.me/">高沛的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">知识分为两种，一种是我们自己知道，另一种是我们知道能从哪里找到。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">木杉</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">木杉</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">木遇水生&amp;褐染杉绝</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/goodGsger" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-排序" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/07/排序/" class="article-date">
+  	<time datetime="2017-03-07T14:34:44.000Z" itemprop="datePublished">2017-03-07</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      排序
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>大学的时光很快就过去了，好多同学都为面试作者准备，机会往往留给又准备的人，的确也该复习一下大学所学的知识了，虽然不可能再面面聚到的学习了，可是还是要为自己的青春负一下责任的，好啦废话不多说来一波排序集锦。<br><a id="more"></a></p>
+<h2 id="快速排序（不稳定算法：相同值位置会因算法的设计不同变动）"><a href="#快速排序（不稳定算法：相同值位置会因算法的设计不同变动）" class="headerlink" title="快速排序（不稳定算法：相同值位置会因算法的设计不同变动）"></a>快速排序（不稳定算法：相同值位置会因算法的设计不同变动）</h2><p>快速排序虽然遇到了递归，即使具有恐惧感，可还是会为战胜它感到无比兴奋。自己实现快排试试吧</p>
+<h3 id="实现思想"><a href="#实现思想" class="headerlink" title="实现思想"></a>实现思想</h3><p>1．先从数列中取出一个数作为参考值。<br>2．分治法则：将比这个数大的数全放到它的右边，小于或等于它的数全放到它的左边。<br>3．再对左右区间重复第二步，直到各区间只有一个数。</p>
+<h3 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h3><pre>
+    <code>
+
+    #include <iostream>
+
+    using namespace std;
+
+    void quick_sort(int *a,int l,int r);
+
+    int main()
+    {
+        int array[] = {5, 28, 37, 12, 51, 69, 3, 92, 78};
+        int i;
+        int len = sizeof(array)/sizeof(int);  //求数组长度
+
+        quick_sort(array , 0 , len - 1);
+
+        cout << "The sorted array:" << endl;
+        for(i = 0;i < len; i ++)
+           cout << array[i] << endl;
+        cout << endl;
+
+        return 0;
+    }
+
+    void quick_sort(int *a,int l,int r)
+    {
+        if(l < r)
+        {
+            int i = l,j = r,x = a[l];    //x为参考值
+            while(i < j)
+            {
+                while(i < j && a[j] >= x)  //从右向左找第一个小于x的数
+                   j--;
+                if(i < j)
+                   a[i++] = a[j];
+                while(i < j && a[i] < x)   //从左向右找到第一个大于x的数
+                   i++;
+                if(i < j)
+                    a[j--] = a[i];
+            }
+            a[i] = x;
+            quick_sort(a, l, i - 1);
+            quick_sort(a, i + 1, r);
+        }
+    }
+
+    </iostream></code>
+</pre>
+
+<p>算法分析：</p>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>利用迭代进行排序。常见的有两路归并排序，多相归并排序，Strand排序</p>
+<h3 id="两路归并排序"><a href="#两路归并排序" class="headerlink" title="两路归并排序"></a>两路归并排序</h3><p>两路归并排序（Merge Sort），也就是我们常说的归并排序。它是建立在归并操作上的一种有效的排序算法，归并操作即将两个已经排序的序列合并成一个序列的操作。</p>
+<p>实现思想：分治法<br>    1.分解：将当前区间一分为二，求 mid = (l + r) / 2。<br>    2.求解：递归地对两个子区间R[low..mid]和R[mid+1..high]进行归并排序；<br>    3.组合：将已排序的两个子区间R[low..mid]和R[mid+1..high]归并为一个有序的区间R[low..high]。</p>
+<p>归并排序需要两部分：Merge 合并函数 和 MergeSort 归并排序实现</p>
+<pre>
+    <code>
+
+    //合并函数
+    void Merge(int *a, int l, int q, int r) { //q = mid
+        int len1 = q - l + 1;
+        int len2 = r - q;
+        int *L = new int[len1 + 1];//用动态数组储存左边的数
+        int *R = new int[len2 + 1];//用动态数组储存右边的数
+
+        for (int i = 0; i < len1; i ++) {// 把Array数组左边的数放入L数组
+            L[i] = a[l + i];
+        }
+
+        for (int j = 0; j < len2; j ++) {// 把Array数组右边的数放入R数组
+            R[j] = a[q + 1 + j];
+        }
+        L[len1] = R[len2] = INT_MAX;    //定义无穷大
+        int i = 0, j = 0;
+        for (int k = l; k <= r;="" k="" ++)="" {="" if="" (l[i]="" <="" r[j])="" 小的放左边，大的放右边="" a[k]="L[i];" i++;="" }="" else="" j++;="" 如果要用动态数组声明最好在这里动态释放="" delete="" []l;="" []r;="" 归并排序实现="" void="" mergesort(int="" *a,="" int="" l,="" r)="" if(l="" mid="(l" +="" 2;="" mergesort(a,="" mid);="" 1,="" r);="" merge(a,="" mid,="" code="">
+</=></code></pre>
+
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>堆(Heap)的概念主要涉及到两个方面：<br>一种数据结构，逻辑上是一颗完全二叉树，存储上是一个数组对象（二叉堆）。<br>垃圾收集存储区，是软件系统可以编程的内存区域。<br>堆排序指的是数据结构</p>
+<p>堆排序的时间复杂度是O(nlgN)，与快速排序达到相同的时间复杂度。但是在实际应用中，我们往往采用快速排序而不是堆排序。这是因为快速排序的一个好的实现，往往比堆排序具有更好的表现。<br>堆排序的主要用途，是在形成和处理优先级队列方面。另外，如果计算要求是类优先级队列（比如，只要返回最大或者最小元素，只有有限的插入要求等），堆同样是很适合的数据结构。</p>
+<p>基础知识<br>堆一般用数组表示，比如数组A数组的长度Length(A)，堆在数组中的元素个数HeapSize(A)。一般说来，HeapSize(A) &lt;= Length(A)，因为数组A当中可能有一些元素不在堆中。<br>假设节点I是数组A中下标为i的节点。<br>Parent(i) : return Floor(i/2); //I的父节点下标，Floor(i)表示比i小的最大整数。<br>Left(i) : return 2<em>i; //I的左子节点<br>Right(i) : return 2</em>i+1; //I的右子节点</p>
+<p>含有n个元素的堆A的高度是: Floor(lgn)。</p>
+<p>基于《算法导论》中堆的基本操作</p>
+<p>优先级队列算法-增加某元素的值(优先级) : HeapIncreaseKey( A, i, key )<br>增加某一个元素的优先级后（元素的值），该元素应该向上移动，才能保持堆的性质。<br>优先级队列算法-插入一个元素: Insert( S, x ) 将x元素插入到优先级队列S中。<br>主要思路是，将堆的最后一个叶节点之后，扩展一个为无穷小的新叶节点，然后增大它的值为x的值。</p>
+<p>MaxHeapify( A, i ):<br>保持堆的性质。假设数组A和下标i，假定以Left(i)和Right(i)为根结点的左右两棵子树都已经是最大堆，节点i的值可能小于其子节点。调整节点i的位置。</p>
+<p>//定义两个有参宏来寻找数组中的数之间的关系<br>//由于坐标起始值为0 有如下定义</p>
+<p>#define left(x) 2*x+1;//获得左节点在数组中的下标</p>
+<p>#define right(x) 2*(x+1);//获得右节点在数组中的下标</p>
+<pre>
+    <code>
+
+    void MaxHeapify(int* a, int i, int low, int high)//输入为要被排序的数组和根节点，数组a当中被维护的那一部分的下标low，high
+    {
+        int l = left(i);//计算下标为i的节点的左子节点
+        int r = right(i);//计算下标为i的节点的右子节点
+        int largest;//保存i,l,r(即i和它的左右子节点)之间的最大数的下标
+        int temp;//交互数组中的数所使用的临时变量
+        //找到三个数当中最大的那个数，将最大的那个数和i进行互换
+        if (l <= high="" &&="" a[l]=""> a[i])
+        {
+            largest = l;
+        }
+        else{
+            largest = i;
+        }
+
+        if (r <= high="" &&="" a[r]=""> a[largest])
+        {
+            largest = r;
+        }
+
+        if (largest != i)
+        {
+            temp = a[i];
+            a[i] = a[largest];
+            a[largest] = temp;
+            MaxHeapify(a, largest,low,high);//交换有可能破坏子树的最大堆性质，所以对所交换的那个子节点进行一次维护，而未交换的那个子节点，根据我们的假设，是保持着最大堆性质的。
+        }
+    }
+
+    </=></=></code>
+</pre>
+
+<p>BuildMaxHeap( A ):<br>从一个给定的数组建立最大堆。子数组A[ floor(n/2)+1 …. … n]中的元素都是树的叶节点(完全二叉树的基本性质)。从索引 ceiling(n/2)开始一直到1，对每一个元素都执行MaxHeapify，最终得到一个最大堆。</p>
+<p>//将数组建立为一个最大堆<br>//调整数组当中数的位置将其处理为一个最大堆<br>//为什么是从length/2-1递减到0，而不是从0开始递增到length/2-1呢？从length/2-1递减到0就意味着，<br>//从最后的一个非叶节点开始“从小到大”地进行维护，保证每一个点的子树都是最大堆，可以确保最大堆的性质</p>
+<pre>
+    <code>
+
+    void BuildMaxHeap(int* a, int length)
+    {
+        for (int i = length / 2 - 1; i >= 0; i--)
+        {
+            MaxHeapify(a, i, 0, length - 1);
+        }
+    }
+    </code>
+</pre>
+
+<p>堆排序 HeapSort( A ): </p>
+<p>堆排序算法的基本思想是，将数组A创建为一个最大堆，然后交换堆的根(最大元素)和最后一个叶节点x，将x从堆中去掉形成新的堆A1，然后重复以上动作，直到堆中只有一个节点。</p>
+<pre>
+    <code>
+
+     void HeapSort(int *a, int length)
+    {
+        int temp;
+        BuildMaxHeap(a, length);
+        for(int i = length - 1; i >= 1; i --)
+        {
+            //交换根节点和数组的最后一个节点
+            temp = a[i];
+            a[i] = a[0];
+            a[0] = temp;
+            MaxHeapify(a, 0, 0, i-1);//维护从下标为i-1到0的子数组
+        }
+    }
+
+    </code>
+</pre>
+
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><h2 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h2><h2 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h2><h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><h2 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h2><h2 id="链表排序"><a href="#链表排序" class="headerlink" title="链表排序"></a>链表排序</h2>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/08/Application/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Application
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/06/Unity-Shader/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unity_Shader</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="排序" data-title="排序" data-url="http://www.goodgsger.me/2017/03/07/排序/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 木杉
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

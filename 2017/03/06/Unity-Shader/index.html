@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Category: 博客 | 木杉</title>
+  <title>Unity_Shader | 木杉</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="木杉">
-<meta property="og:url" content="http://www.goodgsger.me/categories/博客/index.html">
+  <meta name="description" content="“unity shader的学习”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity_Shader">
+<meta property="og:url" content="http://www.goodgsger.me/2017/03/06/Unity-Shader/index.html">
 <meta property="og:site_name" content="木杉">
-<meta property="og:description">
+<meta property="og:description" content="“unity shader的学习”">
+<meta property="og:updated_time" content="2017-03-09T15:42:20.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="木杉">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Unity_Shader">
+<meta name="twitter:description" content="“unity shader的学习”">
   
     <link rel="alternative" href="/atom.xml" title="木杉" type="application/atom+xml">
   
@@ -112,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/git-hexo/" style="font-size: 10px;">git_hexo</a>
+						<a href="/tags/Git-hexo/" style="font-size: 10px;">Git-hexo</a> <a href="/tags/NGUI-3-11-1/" style="font-size: 10px;">NGUI(3-11-1)</a> <a href="/tags/Unity-shader/" style="font-size: 10px;">Unity shader</a> <a href="/tags/UnityAPI/" style="font-size: 20px;">UnityAPI</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
 					</div>
 				</section>
 				
@@ -186,57 +187,132 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-Unity-Shader" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/03/HEXO搭建个人博客/" class="archive-article-date">
-  	<time datetime="2017-03-03T13:15:06.000Z" itemprop="datePublished">3月 3</time>
+    <div class="article-meta">
+      <a href="/2017/03/06/Unity-Shader/" class="article-date">
+  	<time datetime="2017-03-05T16:20:23.000Z" itemprop="datePublished">2017-03-06</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/03/HEXO搭建个人博客/">HEXO搭建个人博客</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Unity_Shader
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git-hexo/">git_hexo</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity-shader/">Unity shader</a></li></ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/博客/">博客</a>
-	</div>
+        
 
-
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有人说，程序员的三大浪漫是编译原理、操作系统和图形学。<br>我们是程序员中的“外貌协会”，期待着用代码编写出炫丽多姿的世界。这就是我们的浪漫。</p>
+<a id="more"></a>
+<h1 id="GPU流水线"><a href="#GPU流水线" class="headerlink" title="GPU流水线"></a>GPU流水线</h1><h2 id="几何阶段："><a href="#几何阶段：" class="headerlink" title="几何阶段："></a>几何阶段：</h2><p>顶点着色器 Vertex Shader<br>是完全可编程的，他通常用于实现顶点空间变换、顶点着色等功能（输出后续所需要的数据）<br>曲面细分着色器 Tessellation Shader<br>是可选的着色器，它用于细分图元。<br>几何着色器 Geometry Shader<br>可选着色器，它用于执行逐图元的着色操作，或者被用于产生更多的图元<br>剪裁 Clipping<br>可配置的，目的是将那些不在摄像机内的顶点剪裁掉，并提出某些三角图元的面片<br>屏幕映射 Screen Mapping<br>这个阶段是不可配置和编程的，他负责把每个图元的坐标转换到屏幕坐标系中</p>
+<h2 id="光栅阶段"><a href="#光栅阶段" class="headerlink" title="光栅阶段"></a>光栅阶段</h2><p>三角形设置（Triangle Setup）和三角形遍历阶段(Triangle Traversal) 是固定函数的阶段<br>片元着色器 Fragment Shader<br>是完全可编程的，用于实现逐片元的着色操作<br>逐片元操作 Per-Fragment Operations<br>负责执行更多重要的操作。如：修改颜色，深度缓冲，进行混合等。是不可编程的，担有很高的可配置性</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/07/排序/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          排序
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/05/Unity-NGUI/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Unity_NGUI</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Unity-Shader" data-title="Unity_Shader" data-url="http://www.goodgsger.me/2017/03/06/Unity-Shader/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -262,10 +338,10 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false
 	}
 </script>

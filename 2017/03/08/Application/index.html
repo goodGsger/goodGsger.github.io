@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Application | 木杉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Application类不含实例属性和实例方法，在脚本中通过直接调用Application类的静态属性和静态方法来控制程序的运行时数据
+Application类静态属性主要：dataPath（persistentDataPath、streamingAssetsPath、temporaryCachePath）和 loadedLvel
+dataPath属性:数据文件路径">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Application">
+<meta property="og:url" content="http://www.goodgsger.me/2017/03/08/Application/index.html">
+<meta property="og:site_name" content="木杉">
+<meta property="og:description" content="Application类不含实例属性和实例方法，在脚本中通过直接调用Application类的静态属性和静态方法来控制程序的运行时数据
+Application类静态属性主要：dataPath（persistentDataPath、streamingAssetsPath、temporaryCachePath）和 loadedLvel
+dataPath属性:数据文件路径">
+<meta property="og:updated_time" content="2017-03-09T15:42:54.717Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Application">
+<meta name="twitter:description" content="Application类不含实例属性和实例方法，在脚本中通过直接调用Application类的静态属性和静态方法来控制程序的运行时数据
+Application类静态属性主要：dataPath（persistentDataPath、streamingAssetsPath、temporaryCachePath）和 loadedLvel
+dataPath属性:数据文件路径">
+  
+    <link rel="alternative" href="/atom.xml" title="木杉" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">木杉</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">木遇水生&amp;褐染杉绝</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/goodGsger" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Git-hexo/" style="font-size: 10px;">Git-hexo</a> <a href="/tags/NGUI-3-11-1/" style="font-size: 10px;">NGUI(3-11-1)</a> <a href="/tags/Unity-shader/" style="font-size: 10px;">Unity shader</a> <a href="/tags/UnityAPI/" style="font-size: 20px;">UnityAPI</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.gaopei.me/">高沛的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">知识分为两种，一种是我们自己知道，另一种是我们知道能从哪里找到。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">木杉</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">木杉</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">木遇水生&amp;褐染杉绝</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/goodGsger" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Application" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/08/Application/" class="article-date">
+  	<time datetime="2017-03-08T09:12:24.000Z" itemprop="datePublished">2017-03-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Application
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UnityAPI/">UnityAPI</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Application类不含实例属性和实例方法，在脚本中通过直接调用Application类的静态属性和静态方法来控制程序的运行时数据</p>
+<h2 id="Application类静态属性"><a href="#Application类静态属性" class="headerlink" title="Application类静态属性"></a>Application类静态属性</h2><p>主要：dataPath（persistentDataPath、streamingAssetsPath、temporaryCachePath）和 loadedLvel</p>
+<h3 id="dataPath属性-数据文件路径"><a href="#dataPath属性-数据文件路径" class="headerlink" title="dataPath属性:数据文件路径"></a>dataPath属性:数据文件路径</h3><a id="more"></a>
+<p>基本语法 public static string dataPath{ get; }</p>
+<p>功能 返回程序的数据文件所在文件夹的路径（只读）<br>persistentDataPath: 此属性用于返回一个持久化数据存储目录的路径（只读），可以在此路径下存储一些持久的数据文件。<br>streamingAssetsPath：此属性用于返回流数据的缓存目录，返回路径为相对路径，适合设置一些外部数据文件的路径。<br>temporaryCachePath: 此属性用于返回一个临时数据的缓存目录（只读）。</p>
+<p>代码实现</p>
+<pre>
+    <code>
+
+    using UnityEngine;
+    using System.Collections;
+
+    public class DataPath_ts : MonoBehaviour
+    {
+        void Start()
+        {
+            //四种不同的path，都为只读
+            //dataPath和streamingAssetsPath的路径位置一般是相对程序的安装目录位置
+            //persistentDataPath和temporaryCachePath的路径位置一般是相对所在系统的固定位置
+            Debug.Log("dataPath:" + Application.dataPath);
+            Debug.Log("persistentDataPath:" + Application.persistentDataPath);
+            Debug.Log("streamingAssetsPath:" + Application.streamingAssetsPath);
+            Debug.Log("temporaryCachePath:" + Application.temporaryCachePath);
+        }
+    }
+
+    </code>
+</pre>
+
+
+<h3 id="loadedLvel属性：关卡索引"><a href="#loadedLvel属性：关卡索引" class="headerlink" title="loadedLvel属性：关卡索引"></a>loadedLvel属性：关卡索引</h3><p>基本语法 public static int loadedLevel{ get; } </p>
+<p>功能 此属性用于返回当前程序最后加载的关卡（即Scene）的索引值（只读）。</p>
+<p>代码实现</p>
+<pre>
+    <code>
+
+    using UnityEngine;
+    using System.Collections;
+
+    public class LoadedLevel_ts : MonoBehaviour
+    {
+        void Start()
+        {
+            //返回当前场景的索引值
+            Debug.Log("loadedLevel:" + Application.loadedLevel);
+            //返回当前场景的名字
+            Debug.Log("loadedLevelName:" + Application.loadedLevelName);
+            //是否有场景正在被加载
+            Debug.Log("isLoadingLevel:" + Application.isLoadingLevel);
+            //返回游戏中可被加载的场景数量
+            Debug.Log("levelCount:" + Application.levelCount);
+            //返回当前游戏的运行平台
+            Debug.Log("platform:" + Application.platform);
+            //当前游戏是否正在运行
+            Debug.Log("isPlaying:" + Application.isPlaying);
+            //当前游戏是否处于Unity编辑模式
+            Debug.Log("isEditor:" + Application.isEditor);
+        }
+    }
+
+    </code>
+</pre>
+
+<h2 id="Application类静态方法"><a href="#Application类静态方法" class="headerlink" title="Application类静态方法"></a>Application类静态方法</h2><p>静态方法：CaptureScreenshot、LoadLevelAdditiveAsync、ResgisterLogCallback</p>
+<h3 id="CaptureScreenshot方法：截屏"><a href="#CaptureScreenshot方法：截屏" class="headerlink" title="CaptureScreenshot方法：截屏"></a>CaptureScreenshot方法：截屏</h3><p>基本语法 （1）public static void CaptureScreenshot(string filename);<br>          (2) public static void CaptureScreenshot(string filename , int superSize);<br>          其中参数filename为截屏文件名，superSize为放大系数，默认为0，不放大。</p>
+<p>功能 截取游戏画面以a.png的格式存储在根目录下，存在同名则替换掉。按superSize放大或缩小</p>
+<p>提示 ：web下无效<br>       superSize &lt; 0 默认不放大。</p>
+<p>代码实现</p>
+<pre>
+    <code>
+
+    using UnityEngine;
+    using System.Collections;
+
+    public class CaptureScreenshot_ts : MonoBehaviour
+    {
+        int tp = -1;
+        void Update()
+        {
+            if (tp == 0)
+            {
+                //默认值，不放大
+                Application.CaptureScreenshot("test01.png", 0);
+            }
+            else if (tp == 1)
+            {
+                //放大系数为1，即不放大
+                Application.CaptureScreenshot("test02.png", 1);
+            }
+            else
+            {
+                //放大系数为2，即放大2倍
+                Application.CaptureScreenshot("test03.png", 2);
+            }
+            tp++;
+        }
+    }
+
+    </code>
+</pre>
+
+<p>提示：如果存在多组截屏语句，则只会生成最后一次的图片</p>
+<p>由于CaptureScreenshot可以实时截取程序屏幕，可以做出输入即显示的例子 如下：</p>
+<p>控制小球位置</p>
+<pre>
+    <code>
+
+    using UnityEngine;
+    using System.Collections;
+
+    public class Capture_Use_Sub_ts : MonoBehaviour
+    {
+        //物体移动的目标位置
+        public Vector3 toward;
+        //物体移动时间
+        float delays;
+        void Start()
+        {
+            //获取一个随机值
+            delays = Random.Range(2.0f, 4.0f);
+        }
+
+        void Update()
+        {
+            //通过更改物体位置来达到物体运动的效果
+            transform.position = Vector3.MoveTowards(transform.position, toward, delays);
+        }
+    }
+
+    </code>
+</pre>
+
+<p>用户输入脚本并调用小球运动脚本实现小球实时运动</p>
+<pre>
+    <code>
+
+    using UnityEngine;
+    using System.Collections;
+
+    public class Capture_Use_ts : MonoBehaviour
+    {
+
+        //td:用来指向屏幕截图
+        Texture2D td = null;
+        //txt_bg:用来指向文本输入的背景图片
+        //可以指向一张纯色的图片，也可以自定义一个纯色的背景
+        //本程序自定义了一个纯色的背景
+        Texture2D txt_bg;
+        //txt_w和txt_h用来记录文本框的宽度和高度
+        int txt_w, txt_h;
+        //my_save_path：用来记录截图的保存路径
+        string my_save_path = "";
+        //show_txt：用来记录输入的文本
+        string show_txt = "在此输入";
+        //my_colors:用来记录文本输入框的纹理颜色
+        Color[] my_colors;
+        //_w和_h用来记录my_colors的宽度和高度
+        int _w, _h;
+        //step：用来记录当前状态，step共有3种状态：
+        //step=0时，是等待状态，等待在文本框中输入文本
+        //step=1时，即点击“确定”按钮后，生成截图并保存
+        //step=2时，读取截图信息
+        //step=3时，是对读取的截图信息进行有选择的提取，并生成想要展示的内容
+        int step = 0;
+        //go：用来指向拼字所用物体对象
+        public GameObject go;
+        //gos：用来记录所有的go对象
+        GameObject[] gos;
+        //gos_max用来记录gos的最大容量
+        int gos_max;
+        //gos_cur用来记录gos当前使用值
+        int gos_cur = 0;
+        //is_show:用来记录图像矩阵中某个点是否需要展示物体
+        bool[,] is_show;
+
+        void Start()
+        {
+            //初始化文本框的宽度和高度
+            txt_w = 200;
+            txt_h = 80;
+            //初始化截取区间的大小，为了避免边界识别错误，其值应该比文本框的宽度和高度少几个像素
+            _w = txt_w - 5;
+            _h = txt_h - 5;
+            //_w -= 5;
+            //_h -= 5;
+            //自定义txt_bg纹理 像素点存储
+            txt_bg = new Texture2D(txt_w, txt_h);
+            Color[] tdc = new Color[txt_w * txt_h];
+            for (int i = 0; i < txt_w * txt_h; i++)
+            {
+                //所用像素点颜色应相同
+                tdc[i] = Color.white;
+            }
+            txt_bg.SetPixels(0, 0, txt_w, txt_h, tdc);
+
+            is_show = new bool[_h, _w];
+            //初始化gos_max,其值大小为_w * _h的三分之一在一般情况下就够用了
+            gos_max = _w * _h / 3;
+            //实例化gos，使其随机分布_w和_h的区间内
+            gos = new GameObject[gos_max];
+            for (int i = 0; i < gos_max; i++)
+            {
+                gos[i] = (GameObject)Instantiate(go, new Vector3(Random.value * _w, Random.value * _h, 10.0f), Quaternion.identity);
+                gos[i].GetComponent<capture_use_sub_ts>().toward = gos[i].transform.position;
+            }
+            //存储初始界面截图
+            my_save_path = Application.persistentDataPath;
+            Application.CaptureScreenshot(my_save_path + "/ts02.png");
+
+        }
+
+        void Update()
+        {
+            switch (step)
+            {
+                case 0:
+                    break;
+                case 1:
+                    step = 0;
+                    //截图并保存
+                    my_save_path = Application.persistentDataPath;
+                    Application.CaptureScreenshot(my_save_path + "/ts02.png");
+                    //给电脑一点儿时间用来保存新截取的图片
+                    Invoke("My_WaitForSeconds", 0.4f);
+                    Debug.Log(my_save_path);
+                    break;
+                case 2:
+                    //由于在读取截图纹理的时候，一帧之内可能无法读完
+                    //所以需要step=0，避免逻辑出现混乱
+                    step = 0;
+                    //读取截图信息
+                    my_save_path = Application.persistentDataPath;
+                    StartCoroutine(WaitLoad(my_save_path + "/ts02.png"));
+                    break;
+                case 3:
+                    //在计算并生成展示信息的时候，一帧之内可能无法完成
+                    //所以需要step=0，避免逻辑出现混乱
+                    step = 0;
+                    //计算并生成展示信息
+                    Cum();
+                    break;
+            }
+        }
+
+        //计算并生成展示信息
+        void Cum()
+        {
+            if (td != null)
+            {
+                float ft;
+                //ft:用来记录文本框左下角像素的R通道值，用来作为后面的参照
+                ft = td.GetPixel(2, td.height - _h).r;
+                //截取文本框纹理信息
+                //需要注意的是，纹理坐标系和GUI坐标系不同
+                //纹理坐标系以坐下角为原点，而GUI坐标系以左上角为原点
+                //以2为x方向起点是为了避免截图边缘的痕迹
+                my_colors = td.GetPixels(2, td.height - _h, _w, _h);
+                int l = my_colors.Length;
+                Debug.Log("length: " + l);
+                //通过遍历my_colors的R值，将其与ft比较来确定是否需要展示物体
+                for (int i = 0; i < l; i++)
+                {
+                    is_show[i / _w, i % _w] = my_colors[i].r == ft ? false : true;
+                }
+                //根据is_show的值排列gos中物体的位置
+                for (int i = 0; i < _h; i++)
+                {
+                    for (int j = 0; j < _w; j++)
+                    {
+                        if (is_show[i, j])
+                        {
+                            if (gos_cur < gos_max)
+                            {
+                                gos[gos_cur].GetComponent<capture_use_sub_ts>().toward = new Vector3(j, i, 0.0f);
+                                gos[gos_cur].SetActive(true);
+                                gos_cur++;
+                            }
+                            //当当前gos数量不够用时需要扩充gos的容量
+                            else
+                            {
+                                Debug.Log("容量过小");
+                                int temps = gos_max;
+                                //将gos容量扩大1.5倍
+                                gos_max = (int)(gos_max * 1.5f);
+                                GameObject[] tps = new GameObject[gos_max];
+                                for (int k = 0; k < temps; k++)
+                                {
+                                    tps[k] = gos[k];
+                                }
+                                for (int k = temps; k < gos_max; k++)
+                                {
+                                    tps[k] = (GameObject)Instantiate(go, new Vector3(Random.value * _h, Random.value * _w, 10.0f), Quaternion.identity);
+                                    tps[k].GetComponent<capture_use_sub_ts>().toward = tps[k].transform.position;
+                                }
+
+                                gos = new GameObject[gos_max];
+                                gos = tps;
+
+                                gos[gos_cur].GetComponent<capture_use_sub_ts>().toward = new Vector3(j, i, 0.0f);
+                                gos[gos_cur].SetActive(true);
+                                gos_cur++;
+
+                            }
+
+                        }
+                    }
+                }
+                //隐藏gos中未曾用到的物体
+                for (int k = gos_cur; k < gos_max; k++)
+                {
+                    gos[k].SetActive(false);
+                }
+            }
+        }
+        //绘制界面
+        void OnGUI()
+        {
+            //绘制纹理作为TextField的背景
+            GUI.DrawTexture(new Rect(0.0f, 0.0f, txt_w, txt_h), txt_bg);
+            GUIStyle gs = new GUIStyle();
+            gs.fontSize = 50;
+            show_txt = GUI.TextField(new Rect(0.0f, 0.0f, txt_w, txt_h), show_txt, 15, gs);
+
+            if (GUI.Button(new Rect(0, 100, 80, 45), "确定"))
+            {
+                //取消在TextField中的焦点
+                GUI.FocusControl(null);
+                //重置gos_cur的值
+                gos_cur = 0;
+                step = 1;
+            }
+            //程序退出
+            if (GUI.Button(new Rect(0, 155, 80, 45), "退出"))
+            {
+                Application.Quit();
+            }
+        }
+
+        //加载图片
+        IEnumerator WaitLoad(string fileName)
+        {
+            WWW wwwTexture = new WWW("file://" + fileName);
+            Debug.Log(wwwTexture.url);
+            yield return wwwTexture;
+            td = wwwTexture.texture;
+            step = 3;
+        }
+        //进入步骤2
+        void My_WaitForSeconds()
+        {
+            step = 2;
+        }
+    }
+
+    </capture_use_sub_ts></capture_use_sub_ts></capture_use_sub_ts></capture_use_sub_ts></code>
+</pre>
+
+<h3 id="LoadLevelAdditiveAsync方法：异步加载关卡"><a href="#LoadLevelAdditiveAsync方法：异步加载关卡" class="headerlink" title="LoadLevelAdditiveAsync方法：异步加载关卡"></a>LoadLevelAdditiveAsync方法：异步加载关卡</h3><p>基本语法 (1) public static AsyncOperation LoadLevelAdditiveAsync(int index);<br>             index 被加载关卡的索引值<br>        （2）public static AsyncOperation LoadLevelAdditiveAsync(string levelName);<br>             levelName被加载关卡的名字</p>
+<p>功能 此方法用于按照关卡名字在后台异步加载关卡到当前场景中，此方法只是将新关卡加载到当前场景，当前场景原有内容不会被销毁。仅专业版可用</p>
+<p>代码实现</p>
+<pre>
+    <code>
+
+    IEnumerator Start() //标示
+    {
+       AsyncOperation async = Application.LoadLevelAdditiveAsync("Game02");
+       //异步加载中
+       Debug.Log("1:" + async.isDone); //是否加载完成
+       Debug.Log("2:" + async.progress); // 加载进度，范围0~1
+       yield returen async;
+       //加载完成后
+       Debug.Log("3:" + async.isDone);
+       Debug.Log("4:" + async.progress);
+       is_load_over = async,isDone;
+    }
+
+    </code>
+</pre>
+
+<h3 id="RegisterLogCallback方法-注册委托"><a href="#RegisterLogCallback方法-注册委托" class="headerlink" title="RegisterLogCallback方法: 注册委托"></a>RegisterLogCallback方法: 注册委托</h3><p>基本语法 public static void RegisterLogCallback(Application.LogCallback handler);<br>         handler 委托方法的名字</p>
+<p>功能 用于注册一个委托来调用日志信息</p>
+<p>提示 RegisterLogCallbackThreaded 方法与此方法的功能相似，不同之处在于RegisterLogCallbackThreaded方法是在一个新线程中调用委托</p>
+<p>代码实现</p>
+<pre>
+    <code>
+
+    using UnityEngine;
+    using System.Collections;
+
+    public class RegisterLogCallback_ts : MonoBehaviour
+    {
+        string output = "";//日志输出信息
+        string stack = "";//堆栈跟踪信息
+        string logType = "";//日志类型
+        int tp = 0;
+        //打印日志信息
+        void Update()
+        {
+            Debug.Log("stack:" + stack);
+            Debug.Log("logType:" + logType);
+            Debug.Log("tp:"+(tp++));
+            Debug.Log("output:" + output);
+        }
+        void OnEnable()
+        {
+            //注册委托
+            Application.RegisterLogCallback(MyCallback);
+        }
+        void OnDisable()
+        {
+            //取消委托
+            Application.RegisterLogCallback(null);
+        }
+        //委托方法
+        //方法名字可以自定义，但方法的参数类型要符合Application.LogCallback中的参数类型
+        void MyCallback(string logString, string stackTrace, LogType type)
+        {
+            output = logString;
+            stack = stackTrace;
+            logType = type.ToString();
+        }
+    }
+
+    </code>
+</pre>
+
+<p>Application类API的实现不是很多，基本上都是实现断点连接和程序文件的存储。<br>上面所写的这些都是基于《UnityAPI解析》有时间会把相应的更新写上刚进行比较，了解API可以大大提高编程效率，及时掌握更新动态也是必要的。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/09/Camera之实例属性/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Camera之实例属性
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/07/排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">排序</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Application" data-title="Application" data-url="http://www.goodgsger.me/2017/03/08/Application/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 木杉
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

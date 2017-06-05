@@ -4,21 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Camera之实例属性 | 木杉</title>
+  <title>Shaderr之数学 | 木杉</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Camera类用来控制虚拟场景的展示，以左下角为屏幕的（0，0）点坐标，右上角为（camera.pixelWidth,camrea.pixelHeight）点坐标。
-Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.eventMask,layerCullDistances,layerCullSpherical,orthographic">
+  <meta name="description" content="不懂数学这不得入内。                         ————古希腊柏拉图学院门口的碑文
+笛卡尔系坐标二维笛卡尔系坐标一个特殊的位置，即原点，它是整个坐标系的中心两条过原点的互相垂直的矢量，即x轴和y轴。被称为该坐标系的基矢量OpenGL:左下角（0，0）DirectX:左上角（0，0）
+三维笛卡尔系坐标三个过原点个相互垂直的轴组成的坐标系三个轴成为该坐标系的基矢量（basis v">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Camera之实例属性">
-<meta property="og:url" content="http://www.goodgsger.me/2017/03/09/Camera之实例属性/index.html">
+<meta property="og:title" content="Shaderr之数学">
+<meta property="og:url" content="http://www.goodgsger.me/2017/03/12/Shader之数学/index.html">
 <meta property="og:site_name" content="木杉">
-<meta property="og:description" content="Camera类用来控制虚拟场景的展示，以左下角为屏幕的（0，0）点坐标，右上角为（camera.pixelWidth,camrea.pixelHeight）点坐标。
-Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.eventMask,layerCullDistances,layerCullSpherical,orthographic">
-<meta property="og:updated_time" content="2017-03-09T15:42:16.568Z">
+<meta property="og:description" content="不懂数学这不得入内。                         ————古希腊柏拉图学院门口的碑文
+笛卡尔系坐标二维笛卡尔系坐标一个特殊的位置，即原点，它是整个坐标系的中心两条过原点的互相垂直的矢量，即x轴和y轴。被称为该坐标系的基矢量OpenGL:左下角（0，0）DirectX:左上角（0，0）
+三维笛卡尔系坐标三个过原点个相互垂直的轴组成的坐标系三个轴成为该坐标系的基矢量（basis v">
+<meta property="og:updated_time" content="2017-03-12T14:00:03.042Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Camera之实例属性">
-<meta name="twitter:description" content="Camera类用来控制虚拟场景的展示，以左下角为屏幕的（0，0）点坐标，右上角为（camera.pixelWidth,camrea.pixelHeight）点坐标。
-Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.eventMask,layerCullDistances,layerCullSpherical,orthographic">
+<meta name="twitter:title" content="Shaderr之数学">
+<meta name="twitter:description" content="不懂数学这不得入内。                         ————古希腊柏拉图学院门口的碑文
+笛卡尔系坐标二维笛卡尔系坐标一个特殊的位置，即原点，它是整个坐标系的中心两条过原点的互相垂直的矢量，即x轴和y轴。被称为该坐标系的基矢量OpenGL:左下角（0，0）DirectX:左上角（0，0）
+三维笛卡尔系坐标三个过原点个相互垂直的轴组成的坐标系三个轴成为该坐标系的基矢量（basis v">
   
     <link rel="alternative" href="/atom.xml" title="木杉" type="application/atom+xml">
   
@@ -190,11 +193,11 @@ Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.e
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Camera之实例属性" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Shader之数学" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/03/09/Camera之实例属性/" class="article-date">
-  	<time datetime="2017-03-09T12:29:31.000Z" itemprop="datePublished">2017-03-09</time>
+      <a href="/2017/03/12/Shader之数学/" class="article-date">
+  	<time datetime="2017-03-12T03:13:26.000Z" itemprop="datePublished">2017-03-12</time>
 </a>
     </div>
   
@@ -207,7 +210,7 @@ Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.e
         
   
     <h1 class="article-title" itemprop="name">
-      Camera之实例属性
+      Shaderr之数学
     </h1>
   
 
@@ -216,7 +219,7 @@ Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.e
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UnityAPI/">UnityAPI</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity-shader/">Unity shader</a></li></ul>
 	</div>
 
         
@@ -227,132 +230,16 @@ Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.e
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Camera类用来控制虚拟场景的展示，以左下角为屏幕的（0，0）点坐标，右上角为（camera.pixelWidth,camrea.pixelHeight）点坐标。</p>
-<h2 id="Camera类实例属性"><a href="#Camera类实例属性" class="headerlink" title="Camera类实例属性"></a>Camera类实例属性</h2><p>实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.eventMask,layerCullDistances,layerCullSpherical,orthographic,pixelRect,projectionMatrix,rect,renderingPath,targetTexture和worldToCameraMatrix.</p>
-<a id="more"></a>
-<h3 id="aspect属性-：设置相机视口比例"><a href="#aspect属性-：设置相机视口比例" class="headerlink" title="aspect属性 ：设置相机视口比例"></a>aspect属性 ：设置相机视口比例</h3><p>基本语法 public float aspect { get; set; }</p>
-<p>功能 由于设置Camera视口的宽高比例值（宽度/高度）。硬件不适配时会变形。<br>代码实现</p>
-<pre>
-    <code>
-
-    using UnityEngine;
-    using System.Collections;
-
-    public class Aspect_ts : MonoBehaviour
-    {
-        void Start()
-        {
-            //camera.aspect的默认值即为当前硬件的aspect值
-            Debug.Log("camera.aspect的默认值：" + camera.aspect);
-        }
-        void OnGUI()
-        {
-            if (GUI.Button(new Rect(10.0f, 10.0f, 200.0f, 45.0f), "aspect=1.0f"))
-            {
-                camera.ResetAspect();
-                camera.aspect = 1.0f;
-            }
-            if (GUI.Button(new Rect(10.0f, 60.0f, 200.0f, 45.0f), "aspect=2.0f"))
-            {
-                camera.ResetAspect();
-                camera.aspect = 2.0f;
-            }
-            if (GUI.Button(new Rect(10.0f, 110.0f, 200.0f, 45.0f), "aspect还原默认值"))
-            {
-                camera.ResetAspect();
-            }
-        }
-    }
-
-    </code>
-</pre>
-
-<h3 id="cameraToWorldMatrix属性：变换矩阵"><a href="#cameraToWorldMatrix属性：变换矩阵" class="headerlink" title="cameraToWorldMatrix属性：变换矩阵"></a>cameraToWorldMatrix属性：变换矩阵</h3><p>基本语法 public Matrix4x4 cameraToWorldMatrix{ get; }</p>
-<p>功能 返回从摄像机的局部坐标系到世界坐标系的变换矩阵（只读）<br>提示 Camera中的forward方向为其自身坐标方向的-z轴方向，一般其他GameObject对象的forward方向为自身坐标系的z轴方向。<br>代码实现</p>
-<pre>
-    <code>
-
-    using UnityEngine;
-    using System.Collections;
-
-    public class CameraToWorldMatrix_ts : MonoBehaviour
-    {
-        void Start()
-        {
-            Debug.Log("Camera旋转前位置：" + transform.position);
-            Matrix4x4 m = camera.cameraToWorldMatrix;
-            //v3的值为沿着Camera局部坐标系的-z轴方向前移5个单位的位置在世界坐标系中的位置
-            Vector3 v3 = m.MultiplyPoint(Vector3.forward * 5.0f);
-            //v4的值为沿着Camera世界坐标系的-z轴方向前移5个单位的位置在世界坐标系中的位置
-            Vector3 v4 = m.MultiplyPoint(transform.forward * 5.0f);
-            //打印v3、v4
-            Debug.Log("旋转前，v3坐标值：" + v3);
-            Debug.Log("旋转前，v4坐标值：" + v4);
-            transform.Rotate(Vector3.up * 90.0f);
-            Debug.Log("Camera旋转后位置：" + transform.position);
-            m = camera.cameraToWorldMatrix;
-            //v3的值为沿着Camera局部坐标系的-z轴方向前移5个单位的位置在世界坐标系中的位置
-            v3 = m.MultiplyPoint(Vector3.forward * 5.0f);
-            //v3的值为沿着Camera世界坐标系的-z轴方向前移5个单位的位置在世界坐标系中的位置
-            v4 = m.MultiplyPoint(transform.forward * 5.0f);
-            //打印v3、v4
-            Debug.Log("旋转后，v3坐标值：" + v3);
-            Debug.Log("旋转后，v4坐标值：" + v4);
-        }
-    }
-
-    </code>
-</pre>
-
-<h3 id="cullingMask属性：摄像机按层渲染"><a href="#cullingMask属性：摄像机按层渲染" class="headerlink" title="cullingMask属性：摄像机按层渲染"></a>cullingMask属性：摄像机按层渲染</h3><p>基本语法 public int cullingMask{ get; set; }</p>
-<p>功能 用于按层（GameObject.layer）有选择性的渲染场景中的物体。<br>     = -1 渲染场景中任何层物体。<br>     = 0 不渲染场景中任何层。<br>     只渲染2，3，4 可用  = (1&lt;&lt;2) + (1&lt;&lt;3) + (1&lt;&lt;4) 实现</p>
-<p>代码实现</p>
-<pre>
-    <code>
-
-    using UnityEngine;
-    using System.Collections;
-
-    public class CullingMask_ts : MonoBehaviour
-    {
-        void OnGUI()
-        {
-            //默认CullingMask=-1，即渲染任何层
-            if (GUI.Button(new Rect(10.0f, 10.0f, 200.0f, 45.0f), "CullingMask=-1"))
-            {
-                camera.cullingMask = -1;
-            }
-            //不渲染任何层
-            if (GUI.Button(new Rect(10.0f, 60.0f, 200.0f, 45.0f), "CullingMask=0"))
-            {
-                camera.cullingMask = 0;
-            }
-            //仅渲染第0层
-            if (GUI.Button(new Rect(10.0f, 110.0f, 200.0f, 45.0f), "CullingMask = 1 << 0"))
-            {
-                camera.cullingMask = 1 << 0;
-            }
-            //仅渲染第8层
-            if (GUI.Button(new Rect(10.0f, 160.0f, 200.0f, 45.0f), "CullingMask = 1 << 8"))
-            {
-                camera.cullingMask = 1 << 8;
-            }
-            //渲染第8层与第0层
-            if (GUI.Button(new Rect(10.0f, 210.0f, 200.0f, 45.0f), "CullingMask=0 && 8"))
-            {
-                //注：不可大意写成camera.cullingMask = 1 << 8+1;或
-                //camera.cullingMask = 1+1 << 8 ;因为根据运算符优先次序其分别等价于：
-                //camera.cullingMask = 1 << (8+1)和camera.cullingMask = (1+1) << 8;
-                camera.cullingMask = (1 << 8) + 1;
-            }
-        }
-    }
-
-    </code>    
-</pre> 
-
-<h3 id="eventMask属性：按层响应事件"><a href="#eventMask属性：按层响应事件" class="headerlink" title="eventMask属性：按层响应事件"></a>eventMask属性：按层响应事件</h3><p>基本语法 public int eventMask{ get; set; }</p>
-<p>功能 </p>
+        <p>不懂数学这不得入内。                         ————古希腊柏拉图学院门口的碑文</p>
+<h2 id="笛卡尔系坐标"><a href="#笛卡尔系坐标" class="headerlink" title="笛卡尔系坐标"></a>笛卡尔系坐标</h2><p>二维笛卡尔系坐标<br>一个特殊的位置，即原点，它是整个坐标系的中心<br>两条过原点的互相垂直的矢量，即x轴和y轴。被称为该坐标系的基矢量<br>OpenGL:左下角（0，0）<br>DirectX:左上角（0，0）</p>
+<p>三维笛卡尔系坐标<br>三个过原点个相互垂直的轴组成的坐标系<br>三个轴成为该坐标系的基矢量（basis vector）<br>   if(length == 1)<br>      标准正交基（orthonormal basis）<br>   else<br>      正交基（orthogonal basis）<br>由于方向的不同 分为左手坐标系和右手坐标系，Unity中观察空间使用的是右手坐标系，模型空间使用的是左手坐标<br>观察空间：以摄像机为原点的坐标系。在这个坐标系中，摄像机的前向是z轴的负方向</p>
+<h2 id="点和矢量"><a href="#点和矢量" class="headerlink" title="点和矢量"></a>点和矢量</h2><p>矢量被用于表示相对于某点的偏移量，只有模和方向两个属性。<br>点作为标量，没有大小之分，只是空间中的一个位置。<br>虽然两者有相同的表达方式，代表的意义却不同。</p>
+<h3 id="矢量的运算"><a href="#矢量的运算" class="headerlink" title="矢量的运算"></a>矢量的运算</h3><p>1.矢量和标量的乘法/除法<br>2.矢量的加法和减法(三角形定则，平行四边形定则)<br>3.矢量的模  |v| = sqrt(v1^2+v2^2+v3^2)<br>4.单位矢量  v^ = v/|v|  也被称为被归一化的矢量 对于非零矢量转化此过程称为归一化<br>   零矢量 v = (0,0,0)<br>5.矢量的点积（内积） dot(a,b)<br>  公式一：a.b = (ax,ay,az).(bx,by,bz) = axbx + ayby + azbz<br>  满足交换律 a.b = b.a<br>  几何意义：投影<br>  性质一：(ka).b = a.(kb) = k(a.b)<br>  性质二：a.(b+c) = a.b + a.c<br>  性质三：v.v = |v|^2<br>  公式二：a.b = |a||b|cos0<br>6.矢量的叉积（外积）<br>  公式一：a <em> b = (ax,ay,az) </em> (bx,by,bz) = (aybz - azby,azbx - axbz,axby - aybx)<br>  不满足交换律 a <em> b != b </em> a<br>  几何意义：同时垂直a,b的矢量<br>  公式二：|a * b| = |a||b|sin0<br>  几何意义：平行四边形面积<br>  应用：计算垂直于一个平面三角形的矢量；还可以用于判断三角片面的朝向。<br>  坐标系的选择只会影响视觉效果，但不会影响叉积的结果。</p>
+<h2 id="矩阵-matrix（母体）黑客帝国的英文名字-The-Matrix"><a href="#矩阵-matrix（母体）黑客帝国的英文名字-The-Matrix" class="headerlink" title="矩阵 matrix（母体）黑客帝国的英文名字 The Matrix"></a>矩阵 matrix（母体）黑客帝国的英文名字 The Matrix</h2><p>将矢量与矩阵联系起来可以更好的研究空间变换</p>
+<h3 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h3><p>1.矩阵和标量的乘法<br>2.矩阵和矩阵的乘法  行乘列 Cij = ai1b1j + ai2b2j + … + ainbnj<br>  性质一：不满足交换律<br>  性质二：满足结合律</p>
+<h3 id="特殊的矩阵"><a href="#特殊的矩阵" class="headerlink" title="特殊的矩阵"></a>特殊的矩阵</h3><p>1.方块矩阵，简称方阵 ：行和列数目相等的矩阵<br>  对角元素 即m11,m22… 行号 = 列号<br>  对角矩阵 除对角元素外的所有元素都为零的矩阵<br>2.单位矩阵 In 任何矩阵和它相乘结果还是原来的矩阵 MI = IM = M<br>3.转置矩阵 对于r <em> c 的矩阵转置成 c </em> r<br>  性质一：矩阵转置的转置等于原矩阵  （M^T）^T = M<br>  性质二：矩阵串接的转置等于反向串接各个矩阵的转置 (AB)^T = B^T A^T<br>4.逆矩阵<br>  条件：该矩阵是方阵<br>          M^-1 M = I<br>  如果一个矩阵有逆矩阵则说这个矩阵是可逆的或是说非奇异的，反之，说是不可逆的或者说奇异的<br>  性质一：逆矩阵的逆矩阵是原矩阵本身<br>  性质二：单位矩阵的逆矩阵是它本身<br>  性质三：转置矩阵的逆矩阵是逆矩阵的转置<br>  性质四：矩阵串接的逆矩阵等于反向串接各个矩阵的逆矩阵<br>  应用：还原原向量<br>5.正交矩阵<br>  如果一个方阵M和他的转置矩阵的乘积是单位矩阵，就说这个矩阵是正交的。<br>  M M^T = I<br>  如果一个矩阵是正交的，那么他的转置矩阵和逆矩阵是一样的 M^T = M^-1</p>
+<h2 id="矩阵的几何意义：变换"><a href="#矩阵的几何意义：变换" class="headerlink" title="矩阵的几何意义：变换"></a>矩阵的几何意义：变换</h2><p>1.线性变换  保留矢量加和矢量乘的变换 如，旋转，缩放，错切，镜像和正交投影<br>2.仿射变换  就是合并线性变换和平移变化的变换类型  扩展到四维空间 这就是齐次坐标空间</p>
+<p>齐次坐标和分解基础变换矩阵（表示纯平移，纯旋转和纯缩放的矩阵）</p>
 
       
     </div>
@@ -362,18 +249,18 @@ Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.e
     
 <nav id="article-nav">
   
-    <a href="/2017/03/09/HEXO搭建个人博客/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/13/cs之战Demo/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          HEXO搭建个人博客
+          cs之战Deno
         
       </div>
     </a>
   
   
-    <a href="/2017/03/08/Application/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Application</div>
+    <a href="/2017/03/09/HEXO搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HEXO搭建个人博客</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -419,7 +306,7 @@ Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.e
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Camera之实例属性" data-title="Camera之实例属性" data-url="http://www.goodgsger.me/2017/03/09/Camera之实例属性/"></div>
+	<div class="ds-thread" data-thread-key="Shader之数学" data-title="Shaderr之数学" data-url="http://www.goodgsger.me/2017/03/12/Shader之数学/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

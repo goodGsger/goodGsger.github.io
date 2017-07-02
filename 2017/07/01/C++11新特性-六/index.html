@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>C++11新特性-六 | 木杉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用C++11中便利的工具方便的处理日期，时间，字符串相关的转换。
+6.1处理日期和时间的chrono库3种类型时间间隔：duration时钟：clocks时间点：time point">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++11新特性-六">
+<meta property="og:url" content="http://www.goodgsger.me/2017/07/01/C++11新特性-六/index.html">
+<meta property="og:site_name" content="木杉">
+<meta property="og:description" content="使用C++11中便利的工具方便的处理日期，时间，字符串相关的转换。
+6.1处理日期和时间的chrono库3种类型时间间隔：duration时钟：clocks时间点：time point">
+<meta property="og:updated_time" content="2017-07-02T03:33:34.272Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++11新特性-六">
+<meta name="twitter:description" content="使用C++11中便利的工具方便的处理日期，时间，字符串相关的转换。
+6.1处理日期和时间的chrono库3种类型时间间隔：duration时钟：clocks时间点：time point">
+  
+    <link rel="alternative" href="/atom.xml" title="木杉" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">木杉</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">木遇水生&amp;褐染杉绝</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/goodGsger" title="github">github</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/C-11/" style="font-size: 20px;">C++11</a> <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Game-Patterns/" style="font-size: 10px;">Game Patterns</a> <a href="/tags/Git-hexo/" style="font-size: 10px;">Git-hexo</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/NGUI-3-11-1/" style="font-size: 10px;">NGUI(3-11-1)</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python小白/" style="font-size: 10px;">Python小白</a> <a href="/tags/Shader中级篇/" style="font-size: 10px;">Shader中级篇</a> <a href="/tags/Unity-5-5/" style="font-size: 10px;">Unity 5.5</a> <a href="/tags/Unity-shader/" style="font-size: 15px;">Unity shader</a> <a href="/tags/UnityAPI/" style="font-size: 15px;">UnityAPI</a> <a href="/tags/Unity插件/" style="font-size: 10px;">Unity插件</a> <a href="/tags/flood-fill/" style="font-size: 10px;">flood fill</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.gaopei.me/">高沛的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">知识分为两种，一种是我们自己知道，另一种是我们知道能从哪里找到。</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">木杉</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">木杉</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">木遇水生&amp;褐染杉绝</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/goodGsger" title="github">github</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-C++11新特性-六" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/01/C++11新特性-六/" class="article-date">
+  	<time datetime="2017-07-01T08:25:56.000Z" itemprop="datePublished">2017-07-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      C++11新特性-六
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用C++11中便利的工具<br>方便的处理日期，时间，字符串相关的转换。</p>
+<h1 id="6-1处理日期和时间的chrono库"><a href="#6-1处理日期和时间的chrono库" class="headerlink" title="6.1处理日期和时间的chrono库"></a>6.1处理日期和时间的chrono库</h1><p>3种类型<br>时间间隔：duration<br>时钟：clocks<br>时间点：time point<br><a id="more"></a></p>
+<h2 id="6-1-1记录时长的duration"><a href="#6-1-1记录时长的duration" class="headerlink" title="6.1.1记录时长的duration"></a>6.1.1记录时长的duration</h2><p>原型：<br>template&lt; class Rep, class Period = std::ratio<1, 1="">&gt;class duration;<br>Rep:是一个数值类型，表示时钟书的类型；第二个表示时钟周期。<br>时钟周期原型<br>template&lt; std::intmax_t Num, std::intmax_t Denom = 1&gt;class ratio;<br>表示每个时钟周期的秒数，第一个分子，第二个分母 = 1；<br>标准库常用时间间隔 ：时，分，秒，毫秒，微秒，纳秒<br>chrono 提供了获取时间间隔的时钟周期数的方法count();<br>时间间隔之间可以做运算<br>统一一种时钟规则<br>ratio&lt; x1, y1&gt;count1;<br>ratio&lt; x2, y2&gt;count2;<br>x1,x2的最大公约数x；<br>y1,y2的最小公倍数y；<br>统一时钟:ration&lt; x, y&gt;.<br>通过duration_cast&lt; chrono::minutes&gt;(t).count()计算时间；</1,></p>
+<h2 id="6-1-2表示时间点的time-point"><a href="#6-1-2表示时间点的time-point" class="headerlink" title="6.1.2表示时间点的time point"></a>6.1.2表示时间点的time point</h2><p>表示一个时间点，用来获取从它的clock的纪元开始所经过的duration和当前的时间，还可以做时间的比较和算数运算。<br>typedef duration&lt; int, std::ratio<60*60*24>&gt; days_type;<br>time_point&lt; system_clock,days_type&gt; today = time_point_cast&lt; days_type&gt;(system_clock::now());</60*60*24></p>
+<h2 id="6-1-3获取系统的时钟的clocks"><a href="#6-1-3获取系统的时钟的clocks" class="headerlink" title="6.1.3获取系统的时钟的clocks"></a>6.1.3获取系统的时钟的clocks</h2><p>system_clock:代表真实世界的挂钟时间，依赖于系统。<br>steady_clock：不能被调整的时钟。保证先后调用的now()得到的值是不会递减的<br>high_resolution_clock:高精度时钟.<br>system_clock的to_time_t方法可以将一个time_point转换为ctime:<br>std::time_t now_c = std::chorono::system_clock::to_time_t(time_point);<br>from_time_t方法刚好相反</p>
+<h2 id="6-1-4计时器timer"><a href="#6-1-4计时器timer" class="headerlink" title="6.1.4计时器timer"></a>6.1.4计时器timer</h2><p>用high_resolution_clock实现</p>
+<h1 id="6-2数值类型和字符串的相互转换"><a href="#6-2数值类型和字符串的相互转换" class="headerlink" title="6.2数值类型和字符串的相互转换"></a>6.2数值类型和字符串的相互转换</h1><p>to_string()将任何数值类型转换成字符串类型<br>atoi:字符串-&gt;int类型<br>atol:string-&gt;long<br>atoll:string-&gt;long long<br>atof:string-&gt;浮点数</p>
+<h1 id="6-3宽窄字符转换"><a href="#6-3宽窄字符转换" class="headerlink" title="6.3宽窄字符转换"></a>6.3宽窄字符转换</h1><p>C++11增加了unicode字面量的支持，可以通过L来定义宽字符：<br>std::wstring str = L”中国人”;<br>std::wstring_convert:将款字符串转换成窄字符串；<br>转换器：std::convert_utf8,std::convert_utf16,std::convert_utf8_utf16</p>
+<p>C++11的其他特性</p>
+<h1 id="7-1委托构造函数和继承构造函数"><a href="#7-1委托构造函数和继承构造函数" class="headerlink" title="7.1委托构造函数和继承构造函数"></a>7.1委托构造函数和继承构造函数</h1><h2 id="7-1-1委托构造函数"><a href="#7-1-1委托构造函数" class="headerlink" title="7.1.1委托构造函数"></a>7.1.1委托构造函数</h2><p>允许在同一类中一个人构造函数可以调用另外一个构造函数<br><code><br>    <pre><br>        /<em>使用委托构造函数不能形成环，否则会抛出异常
+        </em>使用了代理构造函数就不能用类成员初始化<br>        class_c(int my_max) : max(my_max){};<br>        <em>只能通过成员赋值初始化
+        </em>/<br>        class_c(int my_max){<br>            max = my_max &gt; 0 ? my_max : 10;<br>        }<br>        class_c(int my_max, int my_min) : class_c(my_max){<br>        //这里通过递归委托上面的构造函数完成成员变量的初始化<br>            min = my_min &gt; 0 &amp; my_min &lt; max ? my_min : 1;<br>        }<br>    </pre><br></code></p>
+<h2 id="7-1-2继承构造函数"><a href="#7-1-2继承构造函数" class="headerlink" title="7.1.2继承构造函数"></a>7.1.2继承构造函数</h2><p>需要在派生类中一一对应继承基类的构造函数，直接继承基类是不能和基类一样构造初始化的。<br><code><br>    <pre><br>    struct Base{<br>        Base(){};<br>        func(){};<br>    };<br>    struct Derived : Base{<br>        using Base::Base;//声明使用基类构造函数<br>        //此方法不仅对构造函数使用，对其它同名函数也适用<br>        using Base::func;<br>        func(int a){return a;};<br>    };<br></pre><br></code></p>
+<h1 id="7-2原始的字面量"><a href="#7-2原始的字面量" class="headerlink" title="7.2原始的字面量"></a>7.2原始的字面量</h1><p>可以直接表示字符串的实际含义，因为有些字符串带有一些特殊的字符，不如转义，需要做专门处理。<br>原始字符串字面量R “xxx(raw string)xxx”和c#中的@字符作用类似<br>string str = “D:\A\B\test.text”; //D:AB    est.text<br>string str = “D:\A\B\test.text”;  //D:\A\B\test.text<br>string str = R”(D:\A\B\test.text)”; //D:\A\B\test.text</p>
+<h1 id="7-3final和override关键字"><a href="#7-3final和override关键字" class="headerlink" title="7.3final和override关键字"></a>7.3final和override关键字</h1><p>c++11 新增了final关键字来限制某个不能被继承，或者某个虚函数不能被重写，和javafinal和c#sealed关键字功能类似<br>如果修饰函数final只能修是虚函数，并且要放到类或者函数后面。<br>virtual coid foo() final;  //只能修饰虚函数，不能被重写<br>struct B final : A{<br>    void foo(); //error<br>};<br>struct C : B{}; //error B不能被继承<br>override关键字确保在派生类中声明的重写函数与基类的虚函数有相同的签名，表明重写基类的虚函数<br>struct A{<br>    virtual void func(){};<br>};<br>struct D : A{<br>    //重写函数<br>    void func() override{};<br>};</p>
+<h1 id="7-4-内存对齐"><a href="#7-4-内存对齐" class="headerlink" title="7.4 内存对齐"></a>7.4 内存对齐</h1><h2 id="7-4-1-内存对齐的介绍"><a href="#7-4-1-内存对齐的介绍" class="headerlink" title="7.4.1 内存对齐的介绍"></a>7.4.1 内存对齐的介绍</h2><p>内存对齐，或者字节对齐，是一个数据类型所存放的内存地址的属性，是一个无符号整数示，必须是2^N；<br>当内存对齐为8，指这个数据类型所定义出来的所有变量内存地址都是8的倍数<br>对于struct中默认的对齐方式等于最大的成员的对齐值。<br>相对偏移量随内存位置而改变。</p>
+<h2 id="7-4-2-对内存的内存对齐"><a href="#7-4-2-对内存的内存对齐" class="headerlink" title="7.4.2 对内存的内存对齐"></a>7.4.2 对内存的内存对齐</h2><p>malloc：使用当前平台默认的最大内存对齐数对齐内存。<br>分配特定内存对齐的内存块：MSVC：_aligned_malloc<br>                          gcc: memalign</p>
+<ul>
+<li><p>前者实现</p>
+<h2 id="7-4-3-利用alignas指定内存对齐大小"><a href="#7-4-3-利用alignas指定内存对齐大小" class="headerlink" title="7.4.3 利用alignas指定内存对齐大小"></a>7.4.3 利用alignas指定内存对齐大小</h2><p>基本用法：alignas(32) long long a = 0;<br>#define XX 1<br>struct alignas(XX) MyStruct_1{};<br>template &lt; size_t YY = 1&gt;<br>struct alignas(YY) MyStruct_2{};<br>static const unsigned ZZ = 1;<br>struct alignas(ZZ) MyStruct_3{};<br>但其只能改大，不能改小，需要使用#pragma pack 或 _Pragma<br>_Pragma(“pack(1)”)<br>struct MyStruct{};<br>_Pragma(“pack(0)”)<br>还可以alignas(int) char c;//按照int的对齐方式对齐char</p>
+<h2 id="7-4-4-利用alignof和std-alignment-of获取内存对齐大小"><a href="#7-4-4-利用alignof和std-alignment-of获取内存对齐大小" class="headerlink" title="7.4.4 利用alignof和std::alignment_of获取内存对齐大小"></a>7.4.4 利用alignof和std::alignment_of获取内存对齐大小</h2><p>alignof获取内存大小,可以用来获取变参内存大小<br>alignof(xx);<br>std::alignment_of补充alignof的功能，继承std::integral_constant,拥有value_type,type,value;<br>//获取大小<br>int alignsize = std::alignment_of<mystruct>::value;<br>//align实现std::alignment_of<br>temeplate&lt; class T&gt;<br>struct alignment_of : std::integral_constant&lt; std::size_t,alignof(T)&gt;{};</mystruct></p>
+<h2 id="7-4-5-内存对齐的类型std-aligned-storage"><a href="#7-4-5-内存对齐的类型std-aligned-storage" class="headerlink" title="7.4.5 内存对齐的类型std::aligned_storage"></a>7.4.5 内存对齐的类型std::aligned_storage</h2><p>一个内存对齐的缓冲区,很多时候要分配一块单纯的内存块，在使用placement new 在这块内存上构建对象。<br>template&lt; std::size_t Len, std:size_t Align = /<em>default-alignment</em>/&gt;<br>struct aligned_storage;<br>声明std::aligned_storage&lt; sizeof(T), alignif(T)&gt;;<br>用法：<br>struct A{};<br>typedef std::aligned_storage&lt; sizeof(A), alignof(A)&gt;::type Aligned_A;//构造内存块<br>Aligned_A a;<br>new (&amp;a) A(10, 20);</p>
+<h2 id="7-4-6-std-max-align-t和std-align操作符"><a href="#7-4-6-std-max-align-t和std-align操作符" class="headerlink" title="7.4.6 std::max_align_t和std::align操作符"></a>7.4.6 std::max_align_t和std::align操作符</h2><p>std::max_align_t：用来返回当前平台的最大默认内存对齐类型。<br>alignof(std::max_align_t); //当前平台的最大默认内存对齐数<br>std::align:用来在一大块内存当中获取一个符合指定内存要求的地址<br>std::align(alignof(int), sizeof(char), pt, space);<br>在内存块中指定内存对齐为alignof(int),找一块大小为sizeof(char)的内存，放入到地址pt中，将buffer从pt开始的长度放到space中。</p>
+<h1 id="7-5-C-11-新增的便利算法"><a href="#7-5-C-11-新增的便利算法" class="headerlink" title="7.5 C++11 新增的便利算法"></a>7.5 C++11 新增的便利算法</h1><p>1.all_of:检查区间[first,last)中是否所有的元素都满足一元判断式p,<br>any_of:检查区间[first,last)中是否至少有一个元素都满足一元判断式p,<br>none_of:检查区间[first,last)中是否所有的元素都不满足一元判断式p,</p>
+<p>std::xx_of(v.begin(), v.end(), isEven);<br>2.find_if_not算法<br>查找不符合某个条件的元素<br>std::find_if_not(v.begin(), v.end(), isEven);<br>3.copy_if<br>根据条件复制<br>std::copy_if(v.begin(), v.end(), v1.begin(), <a href="int i"></a>{return i%2 != 0;});<br>4.iota算法<br>用来生成有序序列<br>std::iota(v.begin(), v.end(), is); //is是序列生成规律<br>5.minmax_elemen算法<br>同时获取最大最小值的算法<br>minmax_elemen(v.begin(), v.end());//存放到pair返回<br>6.is_sorted和is_sorted_until<br>is_sorted:判断一个序列是否排好序。<br>is_sorted_ubtil:返回序列中前面已经排好序的部分</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/02/C++11工程级应用一/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          C++11工程级应用一
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/01/C++11新特性-五/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C++11新特性-五</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="C++11新特性-六" data-title="C++11新特性-六" data-url="http://www.goodgsger.me/2017/07/01/C++11新特性-六/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 木杉
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

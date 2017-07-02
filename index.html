@@ -112,7 +112,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Git-hexo/" style="font-size: 10px;">Git-hexo</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/NGUI-3-11-1/" style="font-size: 10px;">NGUI(3-11-1)</a> <a href="/tags/Unity-5-5/" style="font-size: 10px;">Unity 5.5</a> <a href="/tags/Unity-shader/" style="font-size: 20px;">Unity shader</a> <a href="/tags/UnityAPI/" style="font-size: 20px;">UnityAPI</a> <a href="/tags/Unity插件/" style="font-size: 10px;">Unity插件</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+						<a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/C-11/" style="font-size: 20px;">C++11</a> <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Game-Patterns/" style="font-size: 10px;">Game Patterns</a> <a href="/tags/Git-hexo/" style="font-size: 10px;">Git-hexo</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/NGUI-3-11-1/" style="font-size: 10px;">NGUI(3-11-1)</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python小白/" style="font-size: 10px;">Python小白</a> <a href="/tags/Shader中级篇/" style="font-size: 10px;">Shader中级篇</a> <a href="/tags/Unity-5-5/" style="font-size: 10px;">Unity 5.5</a> <a href="/tags/Unity-shader/" style="font-size: 15px;">Unity shader</a> <a href="/tags/UnityAPI/" style="font-size: 15px;">UnityAPI</a> <a href="/tags/Unity插件/" style="font-size: 10px;">Unity插件</a> <a href="/tags/flood-fill/" style="font-size: 10px;">flood fill</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
 					</div>
 				</section>
 				
@@ -188,11 +188,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-Lua初步" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-C++11工程级应用二" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/06/05/Lua初步/" class="article-date">
-  	<time datetime="2017-06-05T11:22:10.000Z" itemprop="datePublished">2017-06-05</time>
+      <a href="/2017/07/02/C++11工程级应用二/" class="article-date">
+  	<time datetime="2017-07-02T08:44:51.000Z" itemprop="datePublished">2017-07-02</time>
 </a>
     </div>
   
@@ -205,7 +205,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/05/Lua初步/">Lua初步</a>
+      <a class="article-title" href="/2017/07/02/C++11工程级应用二/">C++11工程级应用二</a>
     </h1>
   
 
@@ -214,7 +214,205 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Lua语言初步要掌握以下内容<br>1.数据类型<br>2.函数<br>3.表<br>4.简单的对象实现*<br>
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11工程级应用一" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/02/C++11工程级应用一/" class="article-date">
+  	<time datetime="2017-07-02T03:38:27.000Z" itemprop="datePublished">2017-07-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/02/C++11工程级应用一/">C++11工程级应用一</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近又看了一遍游戏编程模式，这里就来优化一下，嘻嘻.<br>使用C++11 改进我们的设计模式</p>
+<h1 id="8-1改进单例模式"><a href="#8-1改进单例模式" class="headerlink" title="8.1改进单例模式"></a>8.1改进单例模式</h1><p>单例模式保证一个类仅有一个实例，并提供和一个访问他的全局访问点。<br>对于范型单例模式：这个单例模式要能够创建所有的的类型对象，但是这个类型的构造函数形参可能不尽相同，参数个数和参数类型都可能不同。<br>C++11 的可变参数使得泛型单例的实现变得容易简洁。<br><code><br>    <pre><br>    template &lt; typename T&gt;<br>    class Singleton{<br>    public:<br>       template&lt; typename… Args&gt;<br>       static T<em> Instance(Args&amp;&amp;… args){<br>           if(m_pInstance == nullptr)<br>             m_pInstace = new T(std::forward&lt; Args&gt;(args)…); //完美转换，可以转发到正确的函数中<br>            return m_pInstace;<br>       }<br>       //获取单例<br>       static T</em> GetInstace(){<br>          if(m_pInstance == nullptr)<br>            throw std::logic_error(“the instance is not init”);<br>          return m_pInstance;<br>       }<br>       //消除<br>       static T<em> DestoryInstance(){<br>          delete m_pInstance;<br>          m_pInstance = nullptr;<br>       }<br>    private:<br>       Singleton(void);<br>       virtual ~Singleton(void);<br>       Singleton(const Singleton&amp;);  //复制构造<br>       Singleton&amp; operator = (const Singleton&amp;);  //赋值构造<br>    private:<br>       static T</em> m_pInstance;<br>    }</pre></code></p>
+<pre><code>template &lt; class T&gt; T* Singleton&lt;T&gt;::m_pInstance = nullptr;
+
+test:
+struct A { void fun(){}; };
+string str = &quot;Single&quot;;
+Singleton&lt;A&gt;::Instance(str);  //创建A类型单例
+Singketon&lt;A&gt;::GetInstance()-&gt;fun(); //获取单例并调用单例对象方法
+</code></pre><p><br><code></code></p>
+<h1 id="8-2改进观察者模式"><a href="#8-2改进观察者模式" class="headerlink" title="8.2改进观察者模式"></a>8.2改进观察者模式</h1><p>定义对象间的一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于他的对象都得到通知并自动更新。<br>改进：继承是强对象对象关系，需要解除；观察者被通知的接口参数不支持变化，导致观察者不能应对接口的变化。<br><code><br>    <pre><br>        /<em>NonCopyable类使得Event类不可复制</em>/<br>        class NonCopyable{<br>        protected:<br>          NonCopyable() = default;<br>          ~NonCopyable() = default;<br>          NonCopyable(const NonCopyable&amp;) = delete;  //禁用复制构造<br>          NonCopyable&amp; operator = (const NonCopyable&amp;) = delete;  //禁用赋值构造<br>        };</pre></code></p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;functional&gt;
+#include &lt;map&gt;
+using namespace std;
+
+template &lt;typename Func&gt;
+class Events : NonCopyable{
+public:
+   Events(){}
+   ~Events(){}
+   //注册观察者，支持右值引用
+   int Connect(Func&amp;&amp; f){
+       return Assgin(f);
+   }
+   //注册观察者，左值
+   int Connect(const Func&amp; f){
+       return Assgin(f);
+   }
+   //移除观察者
+   void Disconnect(int key){
+       m_connections.erase(key);
+   }
+
+   //通知观察者
+   template&lt;typename... Args&gt;
+   void Notify(Args&amp;&amp;... args){
+         for(auto it : m_connections){
+          it.second(std::forword&lt;Args&gt;(args)...)
+         }
+   }
+private:
+   //保存观察者并分配观察者编号
+   template&lt;typename F&gt;
+   int Assgin(F&amp;&amp; f){
+       int k = m_observerId++；
+       m_connections.emplace(k,  std::forward&lt;F&gt;(f));
+       return K;
+   }
+
+   int m_observerId = 0;             //观察者对应编号
+   std::map&lt;int, Func&gt; m_connections;//观察者列表
+}
+
+/*test*/
+Events&lt;std::function&lt;void(int, int)&gt;&gt; myevent;
+auto key = myevent.Connection(print); //函数方式注册观察者
+lambda，std::function注册 
+</code></pre><p><br></p>
+<h1 id="8-3改进访问者模式"><a href="#8-3改进访问者模式" class="headerlink" title="8.3改进访问者模式"></a>8.3改进访问者模式</h1><p>表示一个作用于某对象结构中的各元素的操作，可用于在不改变各元素的类的前提下定义作用于这些元素的新操作<br>GoF《设计模式》指出:定义对象结构的类很少变化，但经常需要在此结构上定义新的操作。改变对象结构类需要重定义对所有访问者的接口，这可能需要付出很大的代价<br>定义一个稳定的Visitor接口层<br><code><br>    <pre></pre></code></p>
+<pre><code>template&lt;typename... Types&gt;
+struct Visitor;
+
+template&lt;typename T, typename... Types&gt;
+struct Visitor&lt;T, Types...&gt; : Visitor&lt;Types...&gt;{  //委托构造
+    //通过using避免隐藏基类的Visit同名方法
+    using Visitor&lt;Types...&gt;::visit;  //为每个类型都定义一个虚函数
+    virtual void Visit(const T&amp;) = 0;
+};
+ // 基类
+template&lt;typename T&gt;
+struct Visitor&lt;T&gt;{
+    virtual void Visit(const T&amp;) = 0;
+};
+</code></pre><p><br></p>
+<h1 id="8-4-改进命令模式"><a href="#8-4-改进命令模式" class="headerlink" title="8.4 改进命令模式"></a>8.4 改进命令模式</h1><p>命令模式的作用是将请求封装为一个对象，将请求的发起者和执行者解耦，支持对请求排队，撤销，重做。<br>解决类膨胀的问题：GoF虽然意识到这一点，但只是解决简单的命令类，但并没有实现复杂的命令类<br>函数包装器：让命令能接受所有成员函数指针或者函数的对象<br><code><br>    <pre><br>        /<em>接受function,函数对象，lambda和普通函数的包装器</em>/<br>        template&lt; class F, class… Args, class = typename std::enable_if&lt; !std::is_member_function_pointer<f>::value&gt;::type&gt;<br>        void Wrap(F &amp;&amp; f, Args &amp;&amp; … args){<br>            return f(std::forword<args>(args)…);<br>        }<br>        /<em>接受成员函数的包装器</em>/<br>        template&lt; class R, class R, class… DArgs, class P, class… Args&gt;<br>        void Wrap(R(C::<em>f)(DArgs…), P &amp;&amp; p, Args &amp;&amp; … aargs){<br>            return (</em>p.*f)(std::forword<args>(args)…));<br>        }<br>        //应用到命令模式中解决类膨胀问题</args></args></f></pre></code></p>
+<pre><code>#include&lt; functional&gt;
+#incldue&lt; type_traits&gt;
+template &lt; typename R = void&gt;
+struct CommCommand{
+private:
+std::function&lt;R()&gt; m_f;
+public:
+   template&lt; class F, class... Args, class = typename std::enable_if&lt; !std::is_member_function_pointer&lt;F&gt;::value&gt;::type&gt;
+   void Wrap(F &amp;&amp; f, Args &amp;&amp; ... args){
+       m_f = [&amp;]{return f(args..); };
+   }
+   template&lt; class R, class R, class... DArgs, class P, class... Args&gt;
+   void Wrap(R(C::*f)(DArgs...) const, P &amp;&amp; p, Args &amp;&amp; ... aargs){
+      m_f = [&amp;, f]{return (p*.*f)(args..); };
+   }
+   template&lt; class R, class R, class... DArgs, class P, class... Args&gt;
+   void Wrap(R(C::*f)(DArgs...), P &amp;&amp; p, Args &amp;&amp; ... aargs){
+      m_f = [&amp;, f]{return (p*.*f)(args..); };
+   }
+
+   R Excecute(){
+       return m_f();
+   }
+};
+</code></pre><p><br></p>
+<h1 id="8-5-改进对象池模式"><a href="#8-5-改进对象池模式" class="headerlink" title="8.5 改进对象池模式"></a>8.5 改进对象池模式</h1><p>对象池优化：支持自动回收，参数不同的构造<br><code><br>    <pre></pre></code></p>
+<pre><code>#include&lt; string&gt;
+#include&lt; functional&gt;
+#include&lt; memory&gt;
+#include&lt; map&gt;
+#include &quot;NonCopyable.hpp&quot;
+using namespace std;
+
+const int MaxObjectNum = 10;
+template&lt;typename T&gt;
+class ObjectPool : NonCopyable{
+    template&lt;typename... Args&gt;
+    using Constructor = std::function&lt;std::shared_ptr&lt;T&gt;(Args...)&gt;;
+public；
+    //默认创建多个对象
+    template&lt;typename... Args&gt;
+    void Init(size_t num, Args&amp;&amp;... args){
+        if(num &lt;= 0|| num &gt; MaxObjectNum)
+            throw std::logic_error(&quot;&quot;);
+        auto constructName = typeid(Constructor&lt;Args...&gt;).name();
+        for(size_t i = 0;i &lt; num; i++){
+            m_object_map.emplace(constructName, shared_ptr&lt;T&gt;(new T(std::forword&lt;Args&gt;(args)...), [this, constructName](T* p){
+             m_object_map.emplace(std::move(constructName), std::shared_ptr&lt;T&gt;(p));
+            }));
+        }
+    }
+
+    //从对象池中获取一个对象
+    template&lt;typename... Args&gt;
+    std::shared_ptr&lt;T&gt; Get(){
+        string constructName = typeid(Constructor&lt;Args...&gt;).name();
+
+        auto range = m_object_map.equal_range(constructName);
+        for(auto it = range.first; it != range.second; ++it){
+            auto ptr = it-&gt;second;
+            m_object_map.erase(it);
+            return ptr;
+        }
+        return nullptr;
+    }
+ private:
+    multimap&lt;string, std::shared_ptr&lt;T&gt;&gt; m_object_map;
+};
+</code></pre><p><br></p>
+
       
     </div>
     
@@ -222,14 +420,71 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lua/">Lua</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-C++11新特性-六" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/07/01/C++11新特性-六/" class="article-date">
+  	<time datetime="2017-07-01T08:25:56.000Z" itemprop="datePublished">2017-07-01</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/01/C++11新特性-六/">C++11新特性-六</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用C++11中便利的工具<br>方便的处理日期，时间，字符串相关的转换。</p>
+<h1 id="6-1处理日期和时间的chrono库"><a href="#6-1处理日期和时间的chrono库" class="headerlink" title="6.1处理日期和时间的chrono库"></a>6.1处理日期和时间的chrono库</h1><p>3种类型<br>时间间隔：duration<br>时钟：clocks<br>时间点：time point<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2017/06/05/Lua初步/#more">more >></a>
+          <a  href="/2017/07/01/C++11新特性-六/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -248,11 +503,11 @@
 
 
   
-    <article id="post-Unity-iTween" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-C++11新特性-五" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/18/Unity-iTween/" class="article-date">
-  	<time datetime="2017-04-18T13:12:10.000Z" itemprop="datePublished">2017-04-18</time>
+      <a href="/2017/07/01/C++11新特性-五/" class="article-date">
+  	<time datetime="2017-07-01T03:37:16.000Z" itemprop="datePublished">2017-07-01</time>
 </a>
     </div>
   
@@ -265,7 +520,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/18/Unity-iTween/">Unity-iTween</a>
+      <a class="article-title" href="/2017/07/01/C++11新特性-五/">C++11新特性-五</a>
     </h1>
   
 
@@ -274,7 +529,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#iTween 介绍<br> iTween是一个动画库,作者创建它的目的就是最小的投入实现最大的产出.让你做开发更轻松,用它可以轻松实现各种动画,晃动,旋转,移动,褪色,上色,控制音频等等<br>
+        <p>使用C++11让多线程开发变得简单</p>
+<h1 id="5-1线程"><a href="#5-1线程" class="headerlink" title="5.1线程"></a>5.1线程</h1><h2 id="5-1-1线程的创建"><a href="#5-1-1线程的创建" class="headerlink" title="5.1.1线程的创建"></a>5.1.1线程的创建</h2><p>std::thread t(f);<br>t.join();//实现线程阻塞，知道线程函数执行结束，有返回值将被忽略<br>t.detach();//将线程和线程对象分离，求不能在对线程进行控制<br>
       
     </div>
     
@@ -282,14 +538,14 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity插件/">Unity插件</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2017/04/18/Unity-iTween/#more">more >></a>
+          <a  href="/2017/07/01/C++11新特性-五/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -308,11 +564,11 @@
 
 
   
-    <article id="post-PlayMaker-1.8.3" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-C++11新特性-四" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/04/08/PlayMaker-1.8.3/" class="article-date">
-  	<time datetime="2017-04-08T12:18:54.000Z" itemprop="datePublished">2017-04-08</time>
+      <a href="/2017/06/30/C++11新特性-四/" class="article-date">
+  	<time datetime="2017-06-30T09:15:39.000Z" itemprop="datePublished">2017-06-30</time>
 </a>
     </div>
   
@@ -325,7 +581,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/04/08/PlayMaker-1.8.3/">PlayMaker_1.7.7.1</a>
+      <a class="article-title" href="/2017/06/30/C++11新特性-四/">C++11新特性-四</a>
     </h1>
   
 
@@ -334,8 +590,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Playmaker由第三方软件商Hutong Games开发完成。它的Logo是一个中文的“玩”字，独特、有创意。 </p>
-<p>Playmaker既是一个可视化脚本工具，又是一个分层逻辑框架。设计师、程序员使用Playmaker能够很快地完成游戏原型制作，既适合独立开发者，又适用于团队协作。Playmaker能够大大提高开发效率，让你的游戏变得更加完美。</p>
+        <h1 id="使用C-解决内存分配问题"><a href="#使用C-解决内存分配问题" class="headerlink" title="使用C++解决内存分配问题"></a>使用C++解决内存分配问题</h1><p>#shader_ptr 共享的智能指针<br>std::shared_ptr使用引用计数，每一个shared_ptr的拷贝都指向相同的内存，在最后一个析构的时候，才释放内存。<br>
       
     </div>
     
@@ -343,133 +598,15 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity-5-5/">Unity 5.5</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C-11/">C++11</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2017/04/08/PlayMaker-1.8.3/#more">more >></a>
+          <a  href="/2017/06/30/C++11新特性-四/#more">more >></a>
         </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-cs之战Demo" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/13/cs之战Demo/" class="article-date">
-  	<time datetime="2017-03-13T11:23:29.000Z" itemprop="datePublished">2017-03-13</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/13/cs之战Demo/">cs之战Deno</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Shader之数学" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2017/03/12/Shader之数学/" class="article-date">
-  	<time datetime="2017-03-12T03:13:26.000Z" itemprop="datePublished">2017-03-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/12/Shader之数学/">Shaderr之数学</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>不懂数学这不得入内。                         ————古希腊柏拉图学院门口的碑文</p>
-<h2 id="笛卡尔系坐标"><a href="#笛卡尔系坐标" class="headerlink" title="笛卡尔系坐标"></a>笛卡尔系坐标</h2><p>二维笛卡尔系坐标<br>一个特殊的位置，即原点，它是整个坐标系的中心<br>两条过原点的互相垂直的矢量，即x轴和y轴。被称为该坐标系的基矢量<br>OpenGL:左下角（0，0）<br>DirectX:左上角（0，0）</p>
-<p>三维笛卡尔系坐标<br>三个过原点个相互垂直的轴组成的坐标系<br>三个轴成为该坐标系的基矢量（basis vector）<br>   if(length == 1)<br>      标准正交基（orthonormal basis）<br>   else<br>      正交基（orthogonal basis）<br>由于方向的不同 分为左手坐标系和右手坐标系，Unity中观察空间使用的是右手坐标系，模型空间使用的是左手坐标<br>观察空间：以摄像机为原点的坐标系。在这个坐标系中，摄像机的前向是z轴的负方向</p>
-<h2 id="点和矢量"><a href="#点和矢量" class="headerlink" title="点和矢量"></a>点和矢量</h2><p>矢量被用于表示相对于某点的偏移量，只有模和方向两个属性。<br>点作为标量，没有大小之分，只是空间中的一个位置。<br>虽然两者有相同的表达方式，代表的意义却不同。</p>
-<h3 id="矢量的运算"><a href="#矢量的运算" class="headerlink" title="矢量的运算"></a>矢量的运算</h3><p>1.矢量和标量的乘法/除法<br>2.矢量的加法和减法(三角形定则，平行四边形定则)<br>3.矢量的模  |v| = sqrt(v1^2+v2^2+v3^2)<br>4.单位矢量  v^ = v/|v|  也被称为被归一化的矢量 对于非零矢量转化此过程称为归一化<br>   零矢量 v = (0,0,0)<br>5.矢量的点积（内积） dot(a,b)<br>  公式一：a.b = (ax,ay,az).(bx,by,bz) = axbx + ayby + azbz<br>  满足交换律 a.b = b.a<br>  几何意义：投影<br>  性质一：(ka).b = a.(kb) = k(a.b)<br>  性质二：a.(b+c) = a.b + a.c<br>  性质三：v.v = |v|^2<br>  公式二：a.b = |a||b|cos0<br>6.矢量的叉积（外积）<br>  公式一：a <em> b = (ax,ay,az) </em> (bx,by,bz) = (aybz - azby,azbx - axbz,axby - aybx)<br>  不满足交换律 a <em> b != b </em> a<br>  几何意义：同时垂直a,b的矢量<br>  公式二：|a * b| = |a||b|sin0<br>  几何意义：平行四边形面积<br>  应用：计算垂直于一个平面三角形的矢量；还可以用于判断三角片面的朝向。<br>  坐标系的选择只会影响视觉效果，但不会影响叉积的结果。</p>
-<h2 id="矩阵-matrix（母体）黑客帝国的英文名字-The-Matrix"><a href="#矩阵-matrix（母体）黑客帝国的英文名字-The-Matrix" class="headerlink" title="矩阵 matrix（母体）黑客帝国的英文名字 The Matrix"></a>矩阵 matrix（母体）黑客帝国的英文名字 The Matrix</h2><p>将矢量与矩阵联系起来可以更好的研究空间变换</p>
-<h3 id="矩阵运算"><a href="#矩阵运算" class="headerlink" title="矩阵运算"></a>矩阵运算</h3><p>1.矩阵和标量的乘法<br>2.矩阵和矩阵的乘法  行乘列 Cij = ai1b1j + ai2b2j + … + ainbnj<br>  性质一：不满足交换律<br>  性质二：满足结合律</p>
-<h3 id="特殊的矩阵"><a href="#特殊的矩阵" class="headerlink" title="特殊的矩阵"></a>特殊的矩阵</h3><p>1.方块矩阵，简称方阵 ：行和列数目相等的矩阵<br>  对角元素 即m11,m22… 行号 = 列号<br>  对角矩阵 除对角元素外的所有元素都为零的矩阵<br>2.单位矩阵 In 任何矩阵和它相乘结果还是原来的矩阵 MI = IM = M<br>3.转置矩阵 对于r <em> c 的矩阵转置成 c </em> r<br>  性质一：矩阵转置的转置等于原矩阵  （M^T）^T = M<br>  性质二：矩阵串接的转置等于反向串接各个矩阵的转置 (AB)^T = B^T A^T<br>4.逆矩阵<br>  条件：该矩阵是方阵<br>          M^-1 M = I<br>  如果一个矩阵有逆矩阵则说这个矩阵是可逆的或是说非奇异的，反之，说是不可逆的或者说奇异的<br>  性质一：逆矩阵的逆矩阵是原矩阵本身<br>  性质二：单位矩阵的逆矩阵是它本身<br>  性质三：转置矩阵的逆矩阵是逆矩阵的转置<br>  性质四：矩阵串接的逆矩阵等于反向串接各个矩阵的逆矩阵<br>  应用：还原原向量<br>5.正交矩阵<br>  如果一个方阵M和他的转置矩阵的乘积是单位矩阵，就说这个矩阵是正交的。<br>  M M^T = I<br>  如果一个矩阵是正交的，那么他的转置矩阵和逆矩阵是一样的 M^T = M^-1</p>
-<h2 id="矩阵的几何意义：变换"><a href="#矩阵的几何意义：变换" class="headerlink" title="矩阵的几何意义：变换"></a>矩阵的几何意义：变换</h2><p>1.线性变换  保留矢量加和矢量乘的变换 如，旋转，缩放，错切，镜像和正交投影<br>2.仿射变换  就是合并线性变换和平移变化的变换类型  扩展到四维空间 这就是齐次坐标空间</p>
-<p>齐次坐标和分解基础变换矩阵（表示纯平移，纯旋转和纯缩放的矩阵）</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Unity-shader/">Unity shader</a></li></ul>
-	</div>
-
-      
-
       
       <div class="clearfix"></div>
     </div>
@@ -489,7 +626,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

@@ -14,7 +14,7 @@ Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.e
 <meta property="og:site_name" content="木杉">
 <meta property="og:description" content="Camera类用来控制虚拟场景的展示，以左下角为屏幕的（0，0）点坐标，右上角为（camera.pixelWidth,camrea.pixelHeight）点坐标。
 Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.eventMask,layerCullDistances,layerCullSpherical,orthographic">
-<meta property="og:updated_time" content="2017-03-09T15:42:16.568Z">
+<meta property="og:updated_time" content="2017-06-27T08:37:23.182Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Camera之实例属性">
 <meta name="twitter:description" content="Camera类用来控制虚拟场景的展示，以左下角为屏幕的（0，0）点坐标，右上角为（camera.pixelWidth,camrea.pixelHeight）点坐标。
@@ -116,7 +116,7 @@ Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.e
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Git-hexo/" style="font-size: 10px;">Git-hexo</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/NGUI-3-11-1/" style="font-size: 10px;">NGUI(3-11-1)</a> <a href="/tags/Unity-5-5/" style="font-size: 10px;">Unity 5.5</a> <a href="/tags/Unity-shader/" style="font-size: 20px;">Unity shader</a> <a href="/tags/UnityAPI/" style="font-size: 20px;">UnityAPI</a> <a href="/tags/Unity插件/" style="font-size: 10px;">Unity插件</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+						<a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/C-11/" style="font-size: 20px;">C++11</a> <a href="/tags/English/" style="font-size: 10px;">English</a> <a href="/tags/Game-Patterns/" style="font-size: 10px;">Game Patterns</a> <a href="/tags/Git-hexo/" style="font-size: 10px;">Git-hexo</a> <a href="/tags/Lua/" style="font-size: 10px;">Lua</a> <a href="/tags/NGUI-3-11-1/" style="font-size: 10px;">NGUI(3-11-1)</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python小白/" style="font-size: 10px;">Python小白</a> <a href="/tags/Shader中级篇/" style="font-size: 10px;">Shader中级篇</a> <a href="/tags/Unity-5-5/" style="font-size: 10px;">Unity 5.5</a> <a href="/tags/Unity-shader/" style="font-size: 15px;">Unity shader</a> <a href="/tags/UnityAPI/" style="font-size: 15px;">UnityAPI</a> <a href="/tags/Unity插件/" style="font-size: 10px;">Unity插件</a> <a href="/tags/flood-fill/" style="font-size: 10px;">flood fill</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
 					</div>
 				</section>
 				
@@ -352,7 +352,7 @@ Camera类实例属性实例属性有 ：aspect,cameraToWorldMatrix,cullingMask.e
 </pre> 
 
 <h3 id="eventMask属性：按层响应事件"><a href="#eventMask属性：按层响应事件" class="headerlink" title="eventMask属性：按层响应事件"></a>eventMask属性：按层响应事件</h3><p>基本语法 public int eventMask{ get; set; }</p>
-<p>功能 </p>
+<p>功能 此属性功能是选择哪个层的物体可以实现鼠标响应事件，其使用说明如下。<br>满足的条件：<br>（1）物体在摄像机的视野范围内。<br>（2）在2的layer次方的值与eventMask进行与运算（&amp;）后的结果仍为2的layer次方的值。<br>如果想要多个不同层的物体都响应鼠标事件，则要把所有层的2的layer次方的值相加，再与eventMask做与运算。<br>当物体的layer选择IgnoreRaycast 将无法响应鼠标事件<br>提示：此属性的计算比较消耗资源，在不是用鼠标响应事件时建议将值设为0.</p>
 
       
     </div>

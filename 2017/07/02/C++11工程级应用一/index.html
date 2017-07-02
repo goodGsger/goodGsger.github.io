@@ -7,18 +7,18 @@
   <title>C++11工程级应用一 | 木杉</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近又看了一遍游戏编程模式，这里就来优化一下，嘻嘻.使用C++11 改进我们的设计模式
-8.1改进单例模式单例模式保证一个类仅有一个实例，并提供和一个访问他的全局访问点。对于范型单例模式：这个单例模式要能够创建所有的的类型对象，但是这个类型的构造函数形参可能不尽相同，参数个数和参数类型都可能不同。C++11 的可变参数使得泛型单例的实现变得容易简洁。        template &amp;lt; ty">
+8.1改进单例模式单例模式保证一个类仅有一个实例，并提供和一个访问他的全局访问点。对于范型单例模式：这个单例模式要能够创建所有的的类型对象，但是这个类型的构造函数形参可能不尽相同，参数个数和参数类型都可能不同。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++11工程级应用一">
 <meta property="og:url" content="http://www.goodgsger.me/2017/07/02/C++11工程级应用一/index.html">
 <meta property="og:site_name" content="木杉">
 <meta property="og:description" content="最近又看了一遍游戏编程模式，这里就来优化一下，嘻嘻.使用C++11 改进我们的设计模式
-8.1改进单例模式单例模式保证一个类仅有一个实例，并提供和一个访问他的全局访问点。对于范型单例模式：这个单例模式要能够创建所有的的类型对象，但是这个类型的构造函数形参可能不尽相同，参数个数和参数类型都可能不同。C++11 的可变参数使得泛型单例的实现变得容易简洁。        template &amp;lt; ty">
-<meta property="og:updated_time" content="2017-07-02T08:43:00.209Z">
+8.1改进单例模式单例模式保证一个类仅有一个实例，并提供和一个访问他的全局访问点。对于范型单例模式：这个单例模式要能够创建所有的的类型对象，但是这个类型的构造函数形参可能不尽相同，参数个数和参数类型都可能不同。">
+<meta property="og:updated_time" content="2017-07-02T10:32:48.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++11工程级应用一">
 <meta name="twitter:description" content="最近又看了一遍游戏编程模式，这里就来优化一下，嘻嘻.使用C++11 改进我们的设计模式
-8.1改进单例模式单例模式保证一个类仅有一个实例，并提供和一个访问他的全局访问点。对于范型单例模式：这个单例模式要能够创建所有的的类型对象，但是这个类型的构造函数形参可能不尽相同，参数个数和参数类型都可能不同。C++11 的可变参数使得泛型单例的实现变得容易简洁。        template &amp;lt; ty">
+8.1改进单例模式单例模式保证一个类仅有一个实例，并提供和一个访问他的全局访问点。对于范型单例模式：这个单例模式要能够创建所有的的类型对象，但是这个类型的构造函数形参可能不尽相同，参数个数和参数类型都可能不同。">
   
     <link rel="alternative" href="/atom.xml" title="木杉" type="application/atom+xml">
   
@@ -83,7 +83,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -228,7 +228,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近又看了一遍游戏编程模式，这里就来优化一下，嘻嘻.<br>使用C++11 改进我们的设计模式</p>
-<h1 id="8-1改进单例模式"><a href="#8-1改进单例模式" class="headerlink" title="8.1改进单例模式"></a>8.1改进单例模式</h1><p>单例模式保证一个类仅有一个实例，并提供和一个访问他的全局访问点。<br>对于范型单例模式：这个单例模式要能够创建所有的的类型对象，但是这个类型的构造函数形参可能不尽相同，参数个数和参数类型都可能不同。<br>C++11 的可变参数使得泛型单例的实现变得容易简洁。<br><code><br>    <pre><br>    template &lt; typename T&gt;<br>    class Singleton{<br>    public:<br>       template&lt; typename… Args&gt;<br>       static T<em> Instance(Args&amp;&amp;… args){<br>           if(m_pInstance == nullptr)<br>             m_pInstace = new T(std::forward&lt; Args&gt;(args)…); //完美转换，可以转发到正确的函数中<br>            return m_pInstace;<br>       }<br>       //获取单例<br>       static T</em> GetInstace(){<br>          if(m_pInstance == nullptr)<br>            throw std::logic_error(“the instance is not init”);<br>          return m_pInstance;<br>       }<br>       //消除<br>       static T<em> DestoryInstance(){<br>          delete m_pInstance;<br>          m_pInstance = nullptr;<br>       }<br>    private:<br>       Singleton(void);<br>       virtual ~Singleton(void);<br>       Singleton(const Singleton&amp;);  //复制构造<br>       Singleton&amp; operator = (const Singleton&amp;);  //赋值构造<br>    private:<br>       static T</em> m_pInstance;<br>    }</pre></code></p>
+<h1 id="8-1改进单例模式"><a href="#8-1改进单例模式" class="headerlink" title="8.1改进单例模式"></a>8.1改进单例模式</h1><p>单例模式保证一个类仅有一个实例，并提供和一个访问他的全局访问点。<br>对于范型单例模式：这个单例模式要能够创建所有的的类型对象，但是这个类型的构造函数形参可能不尽相同，参数个数和参数类型都可能不同。<br><a id="more"></a><br>C++11 的可变参数使得泛型单例的实现变得容易简洁。<br><code><br>    <pre><br>    template &lt; typename T&gt;<br>    class Singleton{<br>    public:<br>       template&lt; typename… Args&gt;<br>       static T<em> Instance(Args&amp;&amp;… args){<br>           if(m_pInstance == nullptr)<br>             m_pInstace = new T(std::forward&lt; Args&gt;(args)…); //完美转换，可以转发到正确的函数中<br>            return m_pInstace;<br>       }<br>       //获取单例<br>       static T</em> GetInstace(){<br>          if(m_pInstance == nullptr)<br>            throw std::logic_error(“the instance is not init”);<br>          return m_pInstance;<br>       }<br>       //消除<br>       static T<em> DestoryInstance(){<br>          delete m_pInstance;<br>          m_pInstance = nullptr;<br>       }<br>    private:<br>       Singleton(void);<br>       virtual ~Singleton(void);<br>       Singleton(const Singleton&amp;);  //复制构造<br>       Singleton&amp; operator = (const Singleton&amp;);  //赋值构造<br>    private:<br>       static T</em> m_pInstance;<br>    }</pre></code></p>
 <pre><code>template &lt; class T&gt; T* Singleton&lt;T&gt;::m_pInstance = nullptr;
 
 test:

@@ -79,7 +79,7 @@
 						<li>Links</li>
 						
 						
-						<li>Über</li>
+						<li>About</li>
 						
 					</ul>
 				</div>
@@ -214,7 +214,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用C++11 开发一个半同步半异步线程池</p>
+        <p>使用C++11 开发一个半同步半异步线程池<br>略</p>
 
       
     </div>
@@ -272,152 +272,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近又看了一遍游戏编程模式，这里就来优化一下，嘻嘻.<br>使用C++11 改进我们的设计模式</p>
-<h1 id="8-1改进单例模式"><a href="#8-1改进单例模式" class="headerlink" title="8.1改进单例模式"></a>8.1改进单例模式</h1><p>单例模式保证一个类仅有一个实例，并提供和一个访问他的全局访问点。<br>对于范型单例模式：这个单例模式要能够创建所有的的类型对象，但是这个类型的构造函数形参可能不尽相同，参数个数和参数类型都可能不同。<br>C++11 的可变参数使得泛型单例的实现变得容易简洁。<br><code><br>    <pre><br>    template &lt; typename T&gt;<br>    class Singleton{<br>    public:<br>       template&lt; typename… Args&gt;<br>       static T<em> Instance(Args&amp;&amp;… args){<br>           if(m_pInstance == nullptr)<br>             m_pInstace = new T(std::forward&lt; Args&gt;(args)…); //完美转换，可以转发到正确的函数中<br>            return m_pInstace;<br>       }<br>       //获取单例<br>       static T</em> GetInstace(){<br>          if(m_pInstance == nullptr)<br>            throw std::logic_error(“the instance is not init”);<br>          return m_pInstance;<br>       }<br>       //消除<br>       static T<em> DestoryInstance(){<br>          delete m_pInstance;<br>          m_pInstance = nullptr;<br>       }<br>    private:<br>       Singleton(void);<br>       virtual ~Singleton(void);<br>       Singleton(const Singleton&amp;);  //复制构造<br>       Singleton&amp; operator = (const Singleton&amp;);  //赋值构造<br>    private:<br>       static T</em> m_pInstance;<br>    }</pre></code></p>
-<pre><code>template &lt; class T&gt; T* Singleton&lt;T&gt;::m_pInstance = nullptr;
-
-test:
-struct A { void fun(){}; };
-string str = &quot;Single&quot;;
-Singleton&lt;A&gt;::Instance(str);  //创建A类型单例
-Singketon&lt;A&gt;::GetInstance()-&gt;fun(); //获取单例并调用单例对象方法
-</code></pre><p><br><code></code></p>
-<h1 id="8-2改进观察者模式"><a href="#8-2改进观察者模式" class="headerlink" title="8.2改进观察者模式"></a>8.2改进观察者模式</h1><p>定义对象间的一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于他的对象都得到通知并自动更新。<br>改进：继承是强对象对象关系，需要解除；观察者被通知的接口参数不支持变化，导致观察者不能应对接口的变化。<br><code><br>    <pre><br>        /<em>NonCopyable类使得Event类不可复制</em>/<br>        class NonCopyable{<br>        protected:<br>          NonCopyable() = default;<br>          ~NonCopyable() = default;<br>          NonCopyable(const NonCopyable&amp;) = delete;  //禁用复制构造<br>          NonCopyable&amp; operator = (const NonCopyable&amp;) = delete;  //禁用赋值构造<br>        };</pre></code></p>
-<pre><code>#include &lt;iostream&gt;
-#include &lt;string&gt;
-#include &lt;functional&gt;
-#include &lt;map&gt;
-using namespace std;
-
-template &lt;typename Func&gt;
-class Events : NonCopyable{
-public:
-   Events(){}
-   ~Events(){}
-   //注册观察者，支持右值引用
-   int Connect(Func&amp;&amp; f){
-       return Assgin(f);
-   }
-   //注册观察者，左值
-   int Connect(const Func&amp; f){
-       return Assgin(f);
-   }
-   //移除观察者
-   void Disconnect(int key){
-       m_connections.erase(key);
-   }
-
-   //通知观察者
-   template&lt;typename... Args&gt;
-   void Notify(Args&amp;&amp;... args){
-         for(auto it : m_connections){
-          it.second(std::forword&lt;Args&gt;(args)...)
-         }
-   }
-private:
-   //保存观察者并分配观察者编号
-   template&lt;typename F&gt;
-   int Assgin(F&amp;&amp; f){
-       int k = m_observerId++；
-       m_connections.emplace(k,  std::forward&lt;F&gt;(f));
-       return K;
-   }
-
-   int m_observerId = 0;             //观察者对应编号
-   std::map&lt;int, Func&gt; m_connections;//观察者列表
-}
-
-/*test*/
-Events&lt;std::function&lt;void(int, int)&gt;&gt; myevent;
-auto key = myevent.Connection(print); //函数方式注册观察者
-lambda，std::function注册 
-</code></pre><p><br></p>
-<h1 id="8-3改进访问者模式"><a href="#8-3改进访问者模式" class="headerlink" title="8.3改进访问者模式"></a>8.3改进访问者模式</h1><p>表示一个作用于某对象结构中的各元素的操作，可用于在不改变各元素的类的前提下定义作用于这些元素的新操作<br>GoF《设计模式》指出:定义对象结构的类很少变化，但经常需要在此结构上定义新的操作。改变对象结构类需要重定义对所有访问者的接口，这可能需要付出很大的代价<br>定义一个稳定的Visitor接口层<br><code><br>    <pre></pre></code></p>
-<pre><code>template&lt;typename... Types&gt;
-struct Visitor;
-
-template&lt;typename T, typename... Types&gt;
-struct Visitor&lt;T, Types...&gt; : Visitor&lt;Types...&gt;{  //委托构造
-    //通过using避免隐藏基类的Visit同名方法
-    using Visitor&lt;Types...&gt;::visit;  //为每个类型都定义一个虚函数
-    virtual void Visit(const T&amp;) = 0;
-};
- // 基类
-template&lt;typename T&gt;
-struct Visitor&lt;T&gt;{
-    virtual void Visit(const T&amp;) = 0;
-};
-</code></pre><p><br></p>
-<h1 id="8-4-改进命令模式"><a href="#8-4-改进命令模式" class="headerlink" title="8.4 改进命令模式"></a>8.4 改进命令模式</h1><p>命令模式的作用是将请求封装为一个对象，将请求的发起者和执行者解耦，支持对请求排队，撤销，重做。<br>解决类膨胀的问题：GoF虽然意识到这一点，但只是解决简单的命令类，但并没有实现复杂的命令类<br>函数包装器：让命令能接受所有成员函数指针或者函数的对象<br><code><br>    <pre><br>        /<em>接受function,函数对象，lambda和普通函数的包装器</em>/<br>        template&lt; class F, class… Args, class = typename std::enable_if&lt; !std::is_member_function_pointer<f>::value&gt;::type&gt;<br>        void Wrap(F &amp;&amp; f, Args &amp;&amp; … args){<br>            return f(std::forword<args>(args)…);<br>        }<br>        /<em>接受成员函数的包装器</em>/<br>        template&lt; class R, class R, class… DArgs, class P, class… Args&gt;<br>        void Wrap(R(C::<em>f)(DArgs…), P &amp;&amp; p, Args &amp;&amp; … aargs){<br>            return (</em>p.*f)(std::forword<args>(args)…));<br>        }<br>        //应用到命令模式中解决类膨胀问题</args></args></f></pre></code></p>
-<pre><code>#include&lt; functional&gt;
-#incldue&lt; type_traits&gt;
-template &lt; typename R = void&gt;
-struct CommCommand{
-private:
-std::function&lt;R()&gt; m_f;
-public:
-   template&lt; class F, class... Args, class = typename std::enable_if&lt; !std::is_member_function_pointer&lt;F&gt;::value&gt;::type&gt;
-   void Wrap(F &amp;&amp; f, Args &amp;&amp; ... args){
-       m_f = [&amp;]{return f(args..); };
-   }
-   template&lt; class R, class R, class... DArgs, class P, class... Args&gt;
-   void Wrap(R(C::*f)(DArgs...) const, P &amp;&amp; p, Args &amp;&amp; ... aargs){
-      m_f = [&amp;, f]{return (p*.*f)(args..); };
-   }
-   template&lt; class R, class R, class... DArgs, class P, class... Args&gt;
-   void Wrap(R(C::*f)(DArgs...), P &amp;&amp; p, Args &amp;&amp; ... aargs){
-      m_f = [&amp;, f]{return (p*.*f)(args..); };
-   }
-
-   R Excecute(){
-       return m_f();
-   }
-};
-</code></pre><p><br></p>
-<h1 id="8-5-改进对象池模式"><a href="#8-5-改进对象池模式" class="headerlink" title="8.5 改进对象池模式"></a>8.5 改进对象池模式</h1><p>对象池优化：支持自动回收，参数不同的构造<br><code><br>    <pre></pre></code></p>
-<pre><code>#include&lt; string&gt;
-#include&lt; functional&gt;
-#include&lt; memory&gt;
-#include&lt; map&gt;
-#include &quot;NonCopyable.hpp&quot;
-using namespace std;
-
-const int MaxObjectNum = 10;
-template&lt;typename T&gt;
-class ObjectPool : NonCopyable{
-    template&lt;typename... Args&gt;
-    using Constructor = std::function&lt;std::shared_ptr&lt;T&gt;(Args...)&gt;;
-public；
-    //默认创建多个对象
-    template&lt;typename... Args&gt;
-    void Init(size_t num, Args&amp;&amp;... args){
-        if(num &lt;= 0|| num &gt; MaxObjectNum)
-            throw std::logic_error(&quot;&quot;);
-        auto constructName = typeid(Constructor&lt;Args...&gt;).name();
-        for(size_t i = 0;i &lt; num; i++){
-            m_object_map.emplace(constructName, shared_ptr&lt;T&gt;(new T(std::forword&lt;Args&gt;(args)...), [this, constructName](T* p){
-             m_object_map.emplace(std::move(constructName), std::shared_ptr&lt;T&gt;(p));
-            }));
-        }
-    }
-
-    //从对象池中获取一个对象
-    template&lt;typename... Args&gt;
-    std::shared_ptr&lt;T&gt; Get(){
-        string constructName = typeid(Constructor&lt;Args...&gt;).name();
-
-        auto range = m_object_map.equal_range(constructName);
-        for(auto it = range.first; it != range.second; ++it){
-            auto ptr = it-&gt;second;
-            m_object_map.erase(it);
-            return ptr;
-        }
-        return nullptr;
-    }
- private:
-    multimap&lt;string, std::shared_ptr&lt;T&gt;&gt; m_object_map;
-};
-</code></pre><p><br></p>
-
+<h1 id="8-1改进单例模式"><a href="#8-1改进单例模式" class="headerlink" title="8.1改进单例模式"></a>8.1改进单例模式</h1><p>单例模式保证一个类仅有一个实例，并提供和一个访问他的全局访问点。<br>对于范型单例模式：这个单例模式要能够创建所有的的类型对象，但是这个类型的构造函数形参可能不尽相同，参数个数和参数类型都可能不同。<br>
       
     </div>
     
@@ -430,6 +285,10 @@ public；
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2017/07/02/C++11工程级应用一/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
